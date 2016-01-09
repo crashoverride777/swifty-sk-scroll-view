@@ -1,4 +1,4 @@
-# Swift-2-CustomScrollView-SpriteKit
+# Swift-2-SpriteKit-UIScrollView
 
 A simple helper to add a UIScrollView to your SpriteKit scenes
 
