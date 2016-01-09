@@ -1,5 +1,5 @@
 
-//  Created by Dominik on 22/08/2015.
+//  Created by Dominik on 9/01/2016.
 
 //    The MIT License (MIT)
 //
@@ -20,8 +20,6 @@
 //    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
-
-//    Dont forget to add the custom "-D DEBUG" flag in Targets -> BuildSettings -> SwiftCompiler-CustomFlags -> DEBUG)
 
 //    v1.0  
 
