@@ -16,7 +16,6 @@ class GameScene: SKScene {
     /// Moveable node in the scrollView
     let moveableNode = SKNode()
     
-    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -29,7 +28,7 @@ class GameScene: SKScene {
         view.addSubview(scrollView)
         
         /// sprite
-        let sprite = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 44))
+        let sprite = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
         sprite.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - self.frame.size.height)
         moveableNode.addChild(sprite)
         
