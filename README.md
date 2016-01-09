@@ -31,7 +31,7 @@ and in viewDidLoad like so
 ```swift
 scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode)
 scrollView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height * 2)
-view!.addSubview(scrollView) 
+view.addSubview(scrollView) 
 ```
 
 What you do here is in line 1 you init the helper with you scene dimensions. You also pass along the scene for reference and the moveableNode you created at step 2. Line 2 is where you set up the content size of the scrollView, in this case its twice as long as the screen height.
@@ -39,7 +39,7 @@ What you do here is in line 1 you init the helper with you scene dimensions. You
 Step4: - Add you labels or nodes etc and position them.
 
 ```swift
-label1.position.y = CGRectGetMidY(self.frame) - self.frame.size.height
+label1.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - self.frame.size.height)
 moveableNode.addChild(label1)
 ```
 
