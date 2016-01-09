@@ -16,6 +16,7 @@
 		B4A48B9D1C41B73200990677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A48B9B1C41B73200990677 /* LaunchScreen.storyboard */; };
 		B4A48BA81C41B73200990677 /* CustomScrollViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A48BA71C41B73200990677 /* CustomScrollViewTests.swift */; };
 		B4A48BB31C41B73200990677 /* CustomScrollViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A48BB21C41B73200990677 /* CustomScrollViewUITests.swift */; };
+		B4A48BC11C41B74100990677 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A48BC01C41B74100990677 /* CustomScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B4A48BAE1C41B73200990677 /* CustomScrollViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomScrollViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A48BB21C41B73200990677 /* CustomScrollViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollViewUITests.swift; sourceTree = "<group>"; };
 		B4A48BB41C41B73200990677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4A48BC01C41B74100990677 /* CustomScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		B4A48B8D1C41B73200990677 /* CustomScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				B4A48BC01C41B74100990677 /* CustomScrollView.swift */,
 				B4A48B8E1C41B73200990677 /* AppDelegate.swift */,
 				B4A48B901C41B73200990677 /* GameScene.sks */,
 				B4A48B921C41B73200990677 /* GameScene.swift */,
@@ -265,6 +268,7 @@
 			files = (
 				B4A48B931C41B73200990677 /* GameScene.swift in Sources */,
 				B4A48B951C41B73200990677 /* GameViewController.swift in Sources */,
+				B4A48BC11C41B74100990677 /* CustomScrollView.swift in Sources */,
 				B4A48B8F1C41B73200990677 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,7 +413,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CustomScrollView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.customscrollview.CustomScrollView;
+				PRODUCT_BUNDLE_IDENTIFIER = CustomScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -420,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CustomScrollView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.customscrollview.CustomScrollView;
+				PRODUCT_BUNDLE_IDENTIFIER = CustomScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -494,6 +498,7 @@
 				B4A48BB91C41B73200990677 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B4A48BBA1C41B73200990677 /* Build configuration list for PBXNativeTarget "CustomScrollViewTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +507,7 @@
 				B4A48BBC1C41B73200990677 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B4A48BBD1C41B73200990677 /* Build configuration list for PBXNativeTarget "CustomScrollViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +516,7 @@
 				B4A48BBF1C41B73200990677 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

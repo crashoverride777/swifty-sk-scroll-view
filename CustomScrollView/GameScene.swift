@@ -9,34 +9,34 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    
+    let moveableNode = SKNode()
+    var scrollView: CustomScrollView!
+    
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        addChild(moveableNode)
+        
+        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode)
+        scrollView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height * 2)
+        view.addSubview(scrollView)
+        
+        let sprite = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 44))
+        sprite.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - self.frame.size.height)
+        moveableNode.addChild(sprite)
+        
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Hello, World!"
         myLabel.fontSize = 45
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)
+        moveableNode.addChild(myLabel)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
     }
    
     override func update(currentTime: CFTimeInterval) {
