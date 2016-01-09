@@ -4,11 +4,11 @@ A simple helper to add a UIScrollView to your SpriteKit scenes
 
 # How to use
 
-- Step1: Add the CustomScrollView.swift file to your project
+- Step 1: Add the CustomScrollView.swift file to your project
 
 This make a subclass of UIScrollView and sets up the basic properties of it. It than has its own touches method which get passed along to the relevant scene.
 
-- Step2: In your relevant SKScene you want to use it you create a moveable node
+- Step 2: In your relevant SKScene you want to use it you create a moveable node
  
 ```swift
 var moveableNode = SKNode()
@@ -20,7 +20,7 @@ and add it to the scene in viewDidLoad
 addChild(moveableNode)
 ```
 
-Step3: Init the scroll view helper like so
+Step 3: Init the scroll view helper like so
 
 ```swift
 let scrollView: CustomScrollView!
@@ -36,7 +36,7 @@ view.addSubview(scrollView)
 
 What you do here is in line 1 you init the helper with you scene dimensions. You also pass along the scene for reference and the moveableNode you created at step 2. Line 2 is where you set up the content size of the scrollView, in this case its twice as long as the screen height.
 
-Step4: - Add you labels or nodes etc and position them.
+Step 4: - Add you labels or nodes etc and position them.
 
 ```swift
 label1.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - self.frame.size.height)
@@ -71,7 +71,7 @@ CustomScrollView.enable()
 CustomScrollView.disable()
 ```
 
-- Step6: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in spritekit.
+- Step 6: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in spritekit.
 
 ```swift
 scrollView.removeFromSuperView()
