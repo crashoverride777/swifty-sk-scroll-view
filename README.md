@@ -4,9 +4,7 @@ A simple helper to add a UIScrollView to your SpriteKit scenes
 
 # How to use
 
-- Step1: 
-
-Add the CustomScrollView.swift file to your project
+- Step1: Add the CustomScrollView.swift file to your project
 
 This make a subclass of UIScrollView and sets up the basic properties of it. It than has its own touches method which get passed along to the relevant scene.
 
@@ -73,7 +71,7 @@ CustomScrollView.enable()
 CustomScrollView.disable()
 ```
 
-And finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in spritekit.
+- Step6: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in spritekit.
 
 ```swift
 scrollView.removeFromSuperView()
