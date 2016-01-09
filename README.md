@@ -8,9 +8,9 @@ A simple helper to add a UIScrollView to your SpriteKit scenes
 
 This make a subclass of UIScrollView and sets up the basic properties of it. It than has its own touches method which get passed along to the relevant scene.
 
-- Step2: In your relevant SKScene you want to use it you create a moveable node
-
-    var moveableNode = SKNode() // make this global (above class implementation) if needed for reference
+- Step2: In your relevant SKScene you want to use it you create a moveable node (make global property for reference, ie above class implementation)
+ 
+    var moveableNode = SKNode()
 
 and add it to the scene in viewDidLoad
 
