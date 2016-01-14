@@ -90,4 +90,4 @@ And now the biggest pain is that everything is in reverse when positioning stuff
 
 # Release Notes
 
-v1.0
+- v1.0
