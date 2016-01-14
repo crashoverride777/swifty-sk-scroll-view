@@ -88,6 +88,6 @@ b) go to the delegate method at the bottom and switch x and y.
 
 And now the biggest pain is that everything is in reverse when positioning stuff. So the scroll view goes from right to left. So you need to use the scrollView "contentOffset" method to reposition it and basically place all your labels in reverse order from right to left. Using SkNodes again makes this much easier once you understand whats happening.
 
-# Release Notes
+# Release notes
 
 - v1.0
