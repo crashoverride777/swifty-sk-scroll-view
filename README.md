@@ -49,9 +49,13 @@ scrollView.setContentOffset(CGPoint(x: 0 + self.frame.size.width * 2, y: 0), ani
 ```
 
 Line 1 inits the helper with your scene dimensions. You also pass along the scene for reference, the moveableNode you created at step 2 and the scrollDirection. 
+
 Line 2 is where you set up the content size of the scrollView.
+
 Line 3 adds the scrollView to the subview
+
 Line 4 for horizontal scrolling resets the contentOffset so you start from left to right.
+
 
 Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
 
@@ -103,13 +107,6 @@ for touch in touches {
 }
 ```
 
-I made some class func so if you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button. Again you will probably have to play around here and see how the buttons interact with the scrollView.
-
-```swift
-CustomScrollView.enable()
-CustomScrollView.disable()
-```
-
 - Step 6: Add your sprites to the screen
 ```swift
 let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -129,7 +126,14 @@ sprite2.position = CGPointMake(0, 0)
 page3ScrollView.addChild(sprite2)
 ```
 
-- Step 7: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in spritekit.
+- Step 7: I made some class func so if you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button. Again you will probably have to play around here and see how the buttons interact with the scrollView.
+
+```swift
+CustomScrollView.enable()
+CustomScrollView.disable()
+```
+
+- Step 8: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in SpriteKit.
 
 ```swift
 scrollView.removeFromSuperView()
