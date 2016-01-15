@@ -48,7 +48,7 @@ class CustomScrollView: UIScrollView {
     // MARK: - Properties
     
     /// Current scene
-    private var currentScene: SKScene?
+    private weak var currentScene: SKScene?
     
     /// Moveable node
     private var moveableNode: SKNode?

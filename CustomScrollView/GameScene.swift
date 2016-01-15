@@ -54,7 +54,6 @@ class GameScene: SKScene {
         page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - (self.frame.size.height * 2))
         moveableNode.addChild(page3ScrollView)
         
-        
         /// Test label page 1
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Hello, World!"
