@@ -6,7 +6,7 @@ It also only works well if your scene scaleMode in your gameViewController is se
 ```swift
 .ResizeFill
 ```
-which makes sure that your scenes do not get cropped. If you use other scaleModes such as ".AspectFill" than it might crop stuff in your scenes and therefore scrollView, which you would need to adjust for. 
+which makes sure that your scenes do not get cropped. If you use other scaleModes such as ".AspectFill" than it might crop stuff in your scenes and therefore  the ScrollView, which you would than need to adjust for. 
 
 # How to use
 
