@@ -1,13 +1,12 @@
 # Swift-2-SpriteKit-UIScrollView
 
-A simple helper to add a UIScrollView to your SpriteKit scenes.
-This helper only really works well if your game is either in landscape or portrait, which normally standard in a game anyway.
+A simple helper to add a UIScrollView to your SpriteKit scenes. This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
 
-It also only really works well if your scene scaleMode in your gameViewController is be set to
+It also only works well if your scene scaleMode in your gameViewController is set to
 ```swift
 .ResizeFill
 ```
-to make sure your scenes do not crop. If you use other scaleModes such as ".AspectFill" than it might crop stuff in your scenes and therefore scrollView. It also actually crops the scrollView content, so you would need to adjust for this. 
+which makes sure that your scenes do not get cropped. If you use other scaleModes such as ".AspectFill" than it might crop stuff in your scenes and therefore scrollView, which you would need to adjust for. 
 
 # How to use
 
@@ -33,14 +32,15 @@ let scrollView: CustomScrollView!
 
 and set the scrollView in viewDidLoad like so
 
+Vertical scrolling
 ```swift
-
-/// Vertical scrolling
 scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Vertical)
 scrollView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height * 3) // * 3 makes it 3times as long as screen
 view!.addSubview(scrollView)
+```
 
-/// Horizontal scrolling
+Horizontal scrolling
+```swift
 scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Horizontal)
 scrollView.contentSize = CGSizeMake(self.frame.size.width * 3, self.frame.size.height) // * 3 makes it three times as wide as screen
 view!.addSubview(scrollView)
@@ -55,9 +55,8 @@ Line 4 for horizontal scrolling resets the contentOffset so you start from left 
 
 Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
 
+Vertical scrolling
 ```swift
-
-/// Vertical scrolling
 let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
 page1ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
 moveableNode.addChild(page1ScrollView)
@@ -69,8 +68,10 @@ moveableNode.addChild(page2ScrollView)
 let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
 page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - (self.frame.size.height * 2))
 moveableNode.addChild(page3ScrollView)
+```
 
-/// Horizontal scrolling (positioning is in reverse)
+Horizontal scrolling (positioning is in reverse)
+```swift
 let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
 page1ScrollView.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width * 2), CGRectGetMidY(self.frame))
 moveableNode.addChild(page1ScrollView)
@@ -117,12 +118,12 @@ myLabel.fontSize = 45
 myLabel.position = CGPointMake(0, 0)
 page1ScrollView.addChild(myLabel)
         
-        /// Test sprite page 2
+/// Test sprite page 2
 let sprite = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
 sprite.position = CGPointMake(0, 0)
 page2ScrollView.addChild(sprite)
         
-        /// Test sprite page 3
+/// Test sprite page 3
 let sprite2 = SKSpriteNode(color: SKColor.blueColor(), size: CGSize(width: 50, height: 50))
 sprite2.position = CGPointMake(0, 0)
 page3ScrollView.addChild(sprite2)
@@ -138,6 +139,6 @@ scrollView.removeFromSuperView()
 
 - v1.1
 
-Small improvements to make it easier to select vertical or horizontal scrolling
+Small improvements to make it easier to select vertical or horizontal scrolling without having to adjust some settings in the helper manually.
 
 - v1.0
