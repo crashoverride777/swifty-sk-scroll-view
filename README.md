@@ -1,7 +1,7 @@
 # Swift-2-SpriteKit-UIScrollView
 
 A simple helper to add a UIScrollView to your SpriteKit scenes.
-This helper only really works well if your game is either in landscape or portrait. It doesnt work well if you support both orientations which is very usual in a game anyway.
+This helper only really works well if your game is either in landscape or portrait, which normally standard in a game anyway.
 
 It also only really works well if your scene scaleMode in your gameViewController is be set to
 ```swift
@@ -12,8 +12,6 @@ to make sure your scenes do not crop. If you use other scaleModes such as ".Aspe
 # How to use
 
 - Step 1: Add the CustomScrollView.swift file to your project
-
-This make a subclass of UIScrollView and sets up the basic properties of it. It than has its own touches method which get passed along to the relevant scene.
 
 - Step 2: In your relevant SKScene you want to use it you create a moveable node
  
@@ -27,13 +25,13 @@ and add it to the scene in viewDidLoad
 addChild(moveableNode)
 ```
 
-Step 3: Init the scroll view helper like so
+Step 3: Init the scroll view helper. Create a property like so
 
 ```swift
 let scrollView: CustomScrollView!
 ```
 
-and in viewDidLoad like so
+and set the scrollView in viewDidLoad like so
 
 ```swift
 
@@ -50,10 +48,12 @@ view!.addSubview(scrollView)
 scrollView.setContentOffset(CGPoint(x: 0 + self.frame.size.width * 2, y: 0), animated: true)
 ```
 
-What you do here is in line 1 you init the helper with you scene dimensions. You also pass along the scene for reference and the moveableNode you created at step 2. Line 2 is where you set up the content size of the scrollView.
-When you set up horizontal scrolling you also must reset the contentOffset so you start from left to right
+Line 1 inits the helper with your scene dimensions. You also pass along the scene for reference, the moveableNode you created at step 2 and the scrollDirection. 
+Line 2 is where you set up the content size of the scrollView.
+Line 3 adds the scrollView to the subview
+Line 4 for horizontal scrolling resets the contentOffset so you start from left to right.
 
-Step 4: - Add sprites for each page in the scrollView to help for positioning your actuall stuff later on
+Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
 
 ```swift
 
@@ -70,7 +70,7 @@ let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake
 page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - (self.frame.size.height * 2))
 moveableNode.addChild(page3ScrollView)
 
-/// Horizontal scrolling (position is in reverse)
+/// Horizontal scrolling (positioning is in reverse)
 let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
 page1ScrollView.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width * 2), CGRectGetMidY(self.frame))
 moveableNode.addChild(page1ScrollView)
