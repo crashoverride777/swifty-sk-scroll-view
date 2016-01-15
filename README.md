@@ -1,7 +1,13 @@
 # Swift-2-SpriteKit-UIScrollView
 
 A simple helper to add a UIScrollView to your SpriteKit scenes.
-This helper works best scrolling vertically when your game is in portrait mode, and scrolling horizontally when your game is in landscape mode. I will try to address this in a future update.
+This helper only really works well if your game is either in landscape or portrait. It doesnt work well if you support both orientations which is very usual in a game anyway.
+
+It also only really works well if your scene scaleMode in your gameViewController is be set to
+```swift
+.ResizeFill
+```
+to make sure your scenes do not crop. If you use other scaleModes such as ".AspectFill" than it might crop stuff in your scenes and therefore scrollView. It also actually crops the scrollView content, so you would need to adjust for this. 
 
 # How to use
 
@@ -147,26 +153,34 @@ TIP:
 
 - To make your life easier with positioning loads of different items you probably want to create empty spriteNodes that are the size your your screen for each scrollView page
 ```swift
-let spritePage1 = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
-spritePage1.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width * 2), CGRectGetMidY(self.frame))
-moveableNode.addChild(spritePage1)
+let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+page1ScrollView.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width * 2), CGRectGetMidY(self.frame))
+moveableNode.addChild(page1ScrollView)
 
-let spritePage2 = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
-spritePage2.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width), CGRectGetMidY(self.frame))
-moveableNode.addChild(spritePage2)
+let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+page2ScrollView.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width), CGRectGetMidY(self.frame))
+moveableNode.addChild(page2ScrollView)
+
+let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+moveableNode.addChild(page3ScrollView)
 ```
 and now when you add your labels, sprites, buttons etc you add them to these sprites and position them within the sprite. Because the sprites are the size of the screen its as if you position them in your scene. For example to add sprites to page 1 of the scrollView you can now do this.
 
 ```swift
 let sprite = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
 sprite.position = CGPointMake(0, 0)
-spritePage1.addChild(sprite)
+page1ScrollView.addChild(sprite)
+
+let sprite2 = SKSpriteNode(color: SKColor.blueColor(), size: CGSize(width: 50, height: 50))
+sprite2.position = CGPointMake(0, 0)
+page2ScrollView.addChild(sprite2)
 
 let myLabel = SKLabelNode(fontNamed:"Chalkduster")
 myLabel.text = "Hello, World!"
 myLabel.fontSize = 45
 myLabel.position = CGPointMake(0, 0)
-spritePage2.addChild(myLabel)
+page3ScrollView.addChild(myLabel)
 ```
 
 # Release notes
