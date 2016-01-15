@@ -21,11 +21,19 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v1.0  
+//    v1.1
 
 import SpriteKit
 
+/// Nodes touched
 var nodesTouched: [AnyObject] = [] // global
+
+/// Scroll direction
+enum ScrollDirection: Int {
+    case None = 0
+    case Vertical
+    case Horizontal
+}
 
 class CustomScrollView: UIScrollView {
     
@@ -45,13 +53,17 @@ class CustomScrollView: UIScrollView {
     /// Moveable node
     private var moveableNode: SKNode?
     
+    /// Scroll direction
+    private var scrollDirection = ScrollDirection.None
+    
     // MARK: - Init
-    init(frame: CGRect, scene: SKScene, moveableNode: SKNode) {
+    init(frame: CGRect, scene: SKScene, moveableNode: SKNode, scrollDirection: ScrollDirection) {
         print("Scroll View init")
         super.init(frame: frame)
         
         CustomScrollView.scrollView = self
-        currentScene = scene
+        self.scrollDirection = scrollDirection
+        self.currentScene = scene
         self.moveableNode = moveableNode
         self.frame = frame
         indicatorStyle = .White
@@ -63,8 +75,10 @@ class CustomScrollView: UIScrollView {
         delegate = self
         
         // flip for spritekit (only needed for horizontal)
-        //let verticalFlip = CGAffineTransformMakeScale(-1,-1)
-        //self.transform = verticalFlip
+        if self.scrollDirection == .Horizontal {
+            let flip = CGAffineTransformMakeScale(-1,-1)
+            self.transform = flip
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -133,10 +147,10 @@ extension CustomScrollView: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         print("Scroll view did scroll")
         
-        /// Left-Right
-        //moveableNode!.position.x = scrollView.contentOffset.x
-        
-        /// Up-Downm
-        moveableNode!.position.y = scrollView.contentOffset.y
+        if scrollDirection == .Horizontal {
+            moveableNode!.position.x = scrollView.contentOffset.x
+        } else {
+            moveableNode!.position.y = scrollView.contentOffset.y
+        }
     }
 }
