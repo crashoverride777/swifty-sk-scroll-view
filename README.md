@@ -24,7 +24,7 @@ and add it to the scene in viewDidLoad
 addChild(moveableNode)
 ```
 
-Step 3: Init the scroll view helper. Create a property like so
+- Step 3: Init the scroll view helper. Create a property like so
 
 ```swift
 let scrollView: CustomScrollView!
@@ -56,8 +56,7 @@ Line 3 adds the scrollView to the subview
 
 Line 4 for horizontal scrolling resets the contentOffset so you start from left to right.
 
-
-Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
+- Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
 
 Vertical scrolling
 ```swift
@@ -90,7 +89,7 @@ page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(
 moveableNode.addChild(page3ScrollView)
 ```
 
-Step 5: Make sure you scene registers for scroll view touch events, as in the buttons or labels added to the scrollView were pressed. So in all the touches methods you need/use you need to make sure that they basically looks like this.
+- Step 5: Make sure you scene registers for scroll view touch events, as in the buttons or labels added to the scrollView were pressed. So in all the touches methods you need/use you need to make sure that they basically looks like this.
 
 ```swift
 for touch in touches {
