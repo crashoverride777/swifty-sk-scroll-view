@@ -1,6 +1,7 @@
 # Swift-2-SpriteKit-UIScrollView
 
-A simple helper to add a UIScrollView to your SpriteKit scenes
+A simple helper to add a UIScrollView to your SpriteKit scenes.
+This helper works best scrolling vertically when your game is in portrait mode, and scrolling horizontally when your game is in landscape mode. I will try to address this in a future update.
 
 # How to use
 
@@ -79,14 +80,94 @@ scrollView.removeFromSuperView()
 
 # Horizontal scrollView
 
+/// set scrollView to first page (UIKit coordinates are different to SpriteKit)
+        scrollView.setContentOffset(CGPoint(x: 0 + self.frame.size.width * 2, y: 0), animated: true)
+        
+        /// sprite (1st page on scrollView)
+        let sprite = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
+        sprite.position = CGPointMake(CGRectGetMidX(self.frame) - self.frame.size.width * 2, CGRectGetMidY(self.frame))
+        moveableNode.addChild(sprite)
+        
+        /// sprite 2 (2nd page on scrollView)
+        let sprite2 = SKSpriteNode(color: SKColor.blueColor(), size: CGSize(width: 50, height: 50))
+        sprite2.position = CGPointMake(CGRectGetMidX(self.frame) - self.frame.size.width, CGRectGetMidY(self.frame))
+        moveableNode.addChild(sprite2)
+        
+        /// label (last page)
+        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+        myLabel.text = "Hello, World!"
+        myLabel.fontSize = 45
+        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        moveableNode.addChild(myLabel)
+
 If you are using the scrollView vertically, as in the example and sample project you dont need to do any flipping and reverse positioning.
 For horizontal scrolling it is a bit more tricky.
 
-a) in the helper uncomment the 2 lines in the init method that flip the scroll view. Otherwise scrolling is in the opposite direction.
+- In the helper uncomment the 2 lines in the init method that flip the scroll view. Otherwise scrolling is in the opposite direction of your swipe
+```swift
+let verticalFlip = CGAffineTransformMakeScale(-1,-1)
+self.transform = verticalFlip
+```
 
-b) go to the delegate method at the bottom and switch x and y.
+- Still in the helper go to the delegate method at the bottom and switch x and y.
+```swift
+moveableNode!.position.x = scrollView.contentOffset.x
+//moveableNode!.position.y = scrollView.contentOffset.y
+```
 
-And now the biggest pain is that everything is in reverse when positioning stuff. So the scroll view goes from right to left. So you need to use the scrollView "contentOffset" method to reposition it and basically place all your labels in reverse order from right to left. Using SkNodes again makes this much easier once you understand whats happening.
+- Now the biggest pain is that everything is in reverse when positioning stuff. So the scroll view goes from right to left. So the first step is to set up your scrollView for horizontal scrolling
+```swift
+scrollView.contentSize = CGSizeMake(self.frame.size.width * 3, self.frame.size.height) // makes it 3times as wide as screen
+```
+and than add this line of code right after adding the scrollView to the scene/subview
+```swift
+scrollView.setContentOffset(CGPoint(x: 0 + self.frame.size.width * 2, y: 0), animated: true)
+```
+Here you resetting the contenOffSet of the scrollView, so it scrolls from left to right. 
+In the example the scrollView is 3times as wide as screen therefore you need to offSet the scrollView by 2 screen widths.
+
+So now when you add stuff to the scrollView, it will be positioned on the last page. So in the sample project the "HelloWorld label" is on the last page (3rd page) of the scrollView.
+```swift
+myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+```
+
+If you want to add something to the 1st page of the scrollView you need to subtract the scrollView width. For example
+```swift
+sprite.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width * 2), CGRectGetMidY(self.frame))
+```
+
+If you want to add something on the 2nd page of the scrollView you need to subtract the scrollView width. For example
+
+```swift
+sprite2.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width), CGRectGetMidY(self.frame))
+moveableNode.addChild(sprite2)
+```
+
+TIP:
+
+- To make your life easier with positioning loads of different items you probably want to create empty spriteNodes that are the size your your screen for each scrollView page
+```swift
+let spritePage1 = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+spritePage1.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width * 2), CGRectGetMidY(self.frame))
+moveableNode.addChild(spritePage1)
+
+let spritePage2 = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+spritePage2.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width), CGRectGetMidY(self.frame))
+moveableNode.addChild(spritePage2)
+```
+and now when you add your labels, sprites, buttons etc you add them to these sprites and position them within the sprite. Because the sprites are the size of the screen its as if you position them in your scene. For example to add sprites to page 1 of the scrollView you can now do this.
+
+```swift
+let sprite = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
+sprite.position = CGPointMake(0, 0)
+spritePage1.addChild(sprite)
+
+let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+myLabel.text = "Hello, World!"
+myLabel.fontSize = 45
+myLabel.position = CGPointMake(0, 0)
+spritePage2.addChild(myLabel)
+```
 
 # Release notes
 
