@@ -125,7 +125,7 @@ sprite2.position = CGPointMake(0, 0)
 page3ScrollView.addChild(sprite2)
 ```
 
-- Step 7: I made some class func so if you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button. Again you will probably have to play around here and see how the buttons interact with the scrollView.
+- Step 7: I made some class func so if you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button. You will have to play around here and see how your buttons interact with the scrollView.
 
 ```swift
 CustomScrollView.enable()
