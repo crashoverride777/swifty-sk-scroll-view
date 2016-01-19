@@ -117,8 +117,8 @@ sprite1Page1.position = CGPointMake(0, 0)
 page1ScrollView.addChild(sprite1Page1)
         
 let sprite2Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
-sprite2Page1.position = CGPointMake(sprite1Page1.position.x, sprite1Page1.position.y - sprite1Page1.size.height * 1.5)
-myLabel.addChild(sprite2Page1)
+sprite2Page1.position = CGPointMake(sprite1Page1.position.x, sprite1Page1.position.y - sprite2Page1.size.height * 1.5)
+sprite1Page1.addChild(sprite2Page1)
         
 /// Test sprites page 2
 let sprite1Page2 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
