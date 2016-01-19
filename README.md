@@ -184,8 +184,12 @@ scrollView.removeFromSuperView()
 
 # Release notes
 
-- v1.1
+v1.2
 
-Small improvements to make it easier to select vertical or horizontal scrolling without having to adjust some settings in the helper manually.
+- Updated sample project to show how to add more sprites to the same scrollView page.
 
-- v1.0
+v1.1
+
+- Small improvements to make it easier to select vertical or horizontal scrolling without having to adjust some settings in the helper manually.
+
+v1.0
