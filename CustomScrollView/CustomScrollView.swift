@@ -21,7 +21,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v1.1
+//    v1.2
 
 import SpriteKit
 
@@ -35,6 +35,7 @@ enum ScrollDirection: Int {
     case Horizontal
 }
 
+/// Custom UIScrollView class
 class CustomScrollView: UIScrollView {
     
     // MARK: - Static Properties
