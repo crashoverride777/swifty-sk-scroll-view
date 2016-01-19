@@ -112,15 +112,13 @@ Vertical scrolling
 ```swift
 
 /// Test sprites page 1
-let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-myLabel.text = "Hello, World!"
-myLabel.fontSize = 45
-myLabel.position = CGPointMake(0, 0)
-page1ScrollView.addChild(myLabel)
-        
 let sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
-sprite1Page1.position = CGPointMake(myLabel.position.x, myLabel.position.y - sprite1Page1.size.height)
-myLabel.addChild(sprite1Page1)
+sprite1Page1.position = CGPointMake(0, 0)
+page1ScrollView.addChild(sprite1Page1)
+        
+let sprite2Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
+sprite2Page1.position = CGPointMake(sprite1Page1.position.x, sprite1Page1.position.y - sprite1Page1.size.height * 1.5)
+myLabel.addChild(sprite2Page1)
         
 /// Test sprites page 2
 let sprite1Page2 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
@@ -128,7 +126,7 @@ sprite1Page2.position = CGPointMake(0, 0)
 page2ScrollView.addChild(sprite1Page2)
         
 let sprite2Page2 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
-sprite2Page2.position = CGPointMake(sprite1Page2.position.x, sprite1Page2.position.y - (sprite2Page2.size.width * 1.5))
+sprite2Page2.position = CGPointMake(sprite1Page2.position.x, sprite1Page2.position.y - (sprite2Page2.size.height * 1.5))
 sprite1Page2.addChild(sprite2Page2)
         
 /// Test sprites page 2
@@ -137,22 +135,20 @@ sprite1Page3.position = CGPointMake(0, 0)
 page3ScrollView.addChild(sprite1Page3)
         
 let sprite2Page3 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
-sprite2Page3.position = CGPointMake(sprite1Page3.position.x, sprite1Page3.position.y - (sprite2Page3.size.width * 1.5))
+sprite2Page3.position = CGPointMake(sprite1Page3.position.x, sprite1Page3.position.y - (sprite2Page3.size.height * 1.5))
 sprite1Page3.addChild(sprite2Page3)
 ```
 
 Horizontal
 ```swift
-/// Test sprites and label page 1
-let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-myLabel.text = "Hello, World!"
-myLabel.fontSize = 45
-myLabel.position = CGPointMake(0, 0)
-page1ScrollView.addChild(myLabel)
-        
+/// Test sprites page 1
 let sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
-sprite1Page1.position = CGPointMake(myLabel.position.x, myLabel.position.y - sprite1Page1.size.height)
-myLabel.addChild(sprite1Page1)
+sprite1Page1.position = CGPointMake(0, 0)
+page1ScrollView.addChild(sprite1Page1)
+        
+let sprite2Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
+sprite2Page1.position = CGPointMake(sprite1Page1.position.x + (sprite2Page1.size.width * 1.5), sprite1Page1.position.y)
+sprite1Page1.addChild(sprite2Page1)
         
 /// Test sprites page 2
 let sprite1Page2 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
