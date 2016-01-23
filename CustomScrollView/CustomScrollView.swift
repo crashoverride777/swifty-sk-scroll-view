@@ -52,20 +52,19 @@ class CustomScrollView: UIScrollView {
     private weak var currentScene: SKScene?
     
     /// Moveable node
-    private var moveableNode: SKNode?
+    private var moveableNode = SKNode()
     
     /// Scroll direction
     private var scrollDirection = ScrollDirection.None
     
     // MARK: - Init
     init(frame: CGRect, scene: SKScene, moveableNode: SKNode, scrollDirection: ScrollDirection) {
-        print("Scroll View init")
+        self.currentScene = scene
+        self.moveableNode = moveableNode
+        self.scrollDirection = scrollDirection
         super.init(frame: frame)
         
         CustomScrollView.scrollView = self
-        self.scrollDirection = scrollDirection
-        self.currentScene = scene
-        self.moveableNode = moveableNode
         self.frame = frame
         indicatorStyle = .White
         scrollEnabled = true
@@ -149,9 +148,9 @@ extension CustomScrollView: UIScrollViewDelegate {
         print("Scroll view did scroll")
         
         if scrollDirection == .Horizontal {
-            moveableNode!.position.x = scrollView.contentOffset.x
+            moveableNode.position.x = scrollView.contentOffset.x
         } else {
-            moveableNode!.position.y = scrollView.contentOffset.y
+            moveableNode.position.y = scrollView.contentOffset.y
         }
     }
 }

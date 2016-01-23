@@ -11,7 +11,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     /// Scroll view
-    var scrollView: CustomScrollView!
+    weak var scrollView: CustomScrollView!
     
     /// Moveable node in the scrollView
     let moveableNode = SKNode()
