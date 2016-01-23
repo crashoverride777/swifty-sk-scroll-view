@@ -27,7 +27,7 @@ addChild(moveableNode)
 - Step 3: Init the scroll view helper. Create a property like so
 
 ```swift
-let scrollView: CustomScrollView!
+weak var scrollView: CustomScrollView!
 ```
 
 and set the scrollView in viewDidLoad like so
