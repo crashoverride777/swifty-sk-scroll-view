@@ -21,7 +21,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v1.2
+//    v1.2.1
 
 import SpriteKit
 
@@ -73,6 +73,10 @@ class CustomScrollView: UIScrollView {
         canCancelContentTouches = false
         userInteractionEnabled = true
         delegate = self
+        
+        clipsToBounds = true
+        
+        //contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 50, right: 0)
         
         // flip for spritekit (only needed for horizontal)
         if self.scrollDirection == .Horizontal {

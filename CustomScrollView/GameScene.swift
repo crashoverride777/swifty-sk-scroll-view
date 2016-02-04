@@ -34,23 +34,24 @@ class GameScene: SKScene {
     
     // MARK: - Vertical scrolling properties
     func prepareVerticalScrolling() {
-
+        
         /// set up scrollView
         scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Vertical)
-        scrollView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height * 3) // * 3 makes it 3times as long as screen
+        scrollView.center = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3) // * 3 makes it 3times as long as screen
         view!.addSubview(scrollView)
 
         /// ScrollView Sprites for each page in scrollView
         /// Makes positioning much easier.
-        let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+        let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
         page1ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         moveableNode.addChild(page1ScrollView)
         
-        let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+        let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
         page2ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - (self.frame.size.height))
         moveableNode.addChild(page2ScrollView)
         
-        let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+        let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
         page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - (self.frame.size.height * 2))
         moveableNode.addChild(page3ScrollView)
         
@@ -82,12 +83,14 @@ class GameScene: SKScene {
         sprite1Page3.addChild(sprite2Page3)
     }
     
+    
+    
     // MARK: - Horizontal scrolling properties
     func prepareHorizontalScrolling() {
         
         /// Set up scrollView
         scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Horizontal)
-        scrollView.contentSize = CGSizeMake(self.frame.size.width * 3, self.frame.size.height) // * 3 makes it three times as wide as screen
+        scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height) // * 3 makes it three times as wide as screen
         view!.addSubview(scrollView)
         
         /// Set scrollView to first page
@@ -95,17 +98,17 @@ class GameScene: SKScene {
         
         /// ScrollView Sprites for each page in scrollView
         /// Makes positioning much easier.
-        let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+        let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
         page1ScrollView.zPosition = -1
         page1ScrollView.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width * 2), CGRectGetMidY(self.frame))
         moveableNode.addChild(page1ScrollView)
         
-        let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+        let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
         page2ScrollView.zPosition = -1
         page2ScrollView.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width), CGRectGetMidY(self.frame))
         moveableNode.addChild(page2ScrollView)
         
-        let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(self.frame.size.width, self.frame.size.height))
+        let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
         page3ScrollView.zPosition = -1
         page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         moveableNode.addChild(page3ScrollView)
@@ -137,6 +140,8 @@ class GameScene: SKScene {
         sprite2Page3.position = CGPointMake(sprite1Page3.position.x + (sprite2Page3.size.width * 1.5), sprite1Page3.position.y)
         sprite1Page3.addChild(sprite2Page3)
     }
+    
+    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
