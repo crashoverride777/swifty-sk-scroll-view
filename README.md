@@ -2,6 +2,8 @@
 
 A simple helper to add a UIScrollView to your SpriteKit scenes. This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
 
+The helper will also automatically forwared button presses to the scene and button presses on nodes automatically as your touches method will fire as usual.
+
 It also only works well if your scene scaleMode in your gameViewController is set to
 ```swift
 .ResizeFill
