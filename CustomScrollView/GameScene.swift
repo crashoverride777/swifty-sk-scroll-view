@@ -147,19 +147,6 @@ class GameScene: SKScene {
        /* Called when a touch begins */
     
         print("Touches began")
-        
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            
-            CustomScrollView.nodesTouched = nodesAtPoint(location)
-            for node in CustomScrollView.nodesTouched {
-                node.touchesBegan(touches, withEvent: event) // touches began in this case
-                print("Item in scroll view pressed/moved,ended")
-            }
-            
-            // just do you thing here as usual
-        }
     }
    
     override func update(currentTime: CFTimeInterval) {

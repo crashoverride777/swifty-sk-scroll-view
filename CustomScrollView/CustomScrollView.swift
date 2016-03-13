@@ -35,10 +35,7 @@ enum ScrollDirection: Int {
 class CustomScrollView: UIScrollView {
     
     // MARK: - Static Properties
-    
-    /// Nodes touched
-    static var nodesTouched: [AnyObject] = []
-    
+
     /// Touches allowed
     static var disabledTouches = false
     
@@ -46,6 +43,9 @@ class CustomScrollView: UIScrollView {
     private static var scrollView: UIScrollView!
     
     // MARK: - Properties
+    
+    /// Nodes touched
+    private var nodesTouched: [AnyObject] = []
     
     /// Current scene
     private unowned let currentScene: SKScene
@@ -96,32 +96,66 @@ extension CustomScrollView {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         print("Touch began scroll view")
         
-        guard !CustomScrollView.disabledTouches else { return }
-        currentScene.touchesBegan(touches, withEvent: event)
+        for touch in touches {
+            let location = touch.locationInNode(currentScene)
+        
+            guard !CustomScrollView.disabledTouches else { return }
+            
+            currentScene.touchesBegan(touches, withEvent: event)
+            
+            nodesTouched = currentScene.nodesAtPoint(location)
+            for node in nodesTouched {
+                node.touchesBegan(touches, withEvent: event)
+            }
+        }
     }
     
     /// moved
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         print("Touch moved scroll view")
+        for touch in touches {
+            let location = touch.locationInNode(currentScene)
         
-        guard !CustomScrollView.disabledTouches else { return }
-        currentScene.touchesMoved(touches, withEvent: event)
+            guard !CustomScrollView.disabledTouches else { return }
+            currentScene.touchesMoved(touches, withEvent: event)
+            
+            nodesTouched = currentScene.nodesAtPoint(location)
+            for node in nodesTouched {
+                node.touchesMoved(touches, withEvent: event)
+            }
+        }
     }
     
     /// ended
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         print("Touch ended scroll view")
-        
-        guard !CustomScrollView.disabledTouches else { return }
-        currentScene.touchesEnded(touches, withEvent: event)
+        for touch in touches {
+            let location = touch.locationInNode(currentScene)
+            
+            guard !CustomScrollView.disabledTouches else { return }
+            currentScene.touchesEnded(touches, withEvent: event)
+            
+            nodesTouched = currentScene.nodesAtPoint(location)
+            for node in nodesTouched {
+                node.touchesEnded(touches, withEvent: event)
+            }
+        }
     }
     
     /// cancelled
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         print("Touch cancelled scroll view")
+        for touch in touches! {
+            let location = touch.locationInNode(currentScene)
         
-        guard !CustomScrollView.disabledTouches else { return }
-        currentScene.touchesCancelled(touches, withEvent: event)
+            guard !CustomScrollView.disabledTouches else { return }
+            currentScene.touchesCancelled(touches, withEvent: event)
+            
+            nodesTouched = currentScene.nodesAtPoint(location)
+            for node in nodesTouched {
+                node.touchesCancelled(touches, withEvent: event)
+            }
+        }
     }
 }
 
