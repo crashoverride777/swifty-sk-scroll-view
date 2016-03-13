@@ -169,7 +169,7 @@ scrollView.removeFromSuperView()
 
 - v1.3
 
-Moved the method to forward button presses on nodes into the helper so there is no more need to implement it in the gameScene. Please update your helper and remove the methods in your touches method that used the nodesTouched array in the helper. 
+Moved the method to forward button presses on nodes into the helper so there is no more need to implement it in the gameScene. Please update your helper and remove the methods in your touches method that used the nodesTouched array in the helper (should show as error)
 
 Other small fixes and improvements.
 
