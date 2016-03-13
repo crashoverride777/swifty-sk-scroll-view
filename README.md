@@ -200,4 +200,4 @@ Updated sample project to show how to add more sprites to the same scrollView pa
 
 Small improvements to make it easier to select vertical or horizontal scrolling without having to adjust some settings in the helper manually.
 
-v1.0
+- v1.0
