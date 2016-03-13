@@ -21,16 +21,12 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v1.2.1
+//    v1.3
 
 import SpriteKit
 
-/// Nodes touched
-var nodesTouched: [AnyObject] = [] // global
-
 /// Scroll direction
 enum ScrollDirection: Int {
-    case None = 0
     case Vertical
     case Horizontal
 }
@@ -39,6 +35,9 @@ enum ScrollDirection: Int {
 class CustomScrollView: UIScrollView {
     
     // MARK: - Static Properties
+    
+    /// Nodes touched
+    static var nodesTouched: [AnyObject] = []
     
     /// Touches allowed
     static var disabledTouches = false
@@ -49,13 +48,13 @@ class CustomScrollView: UIScrollView {
     // MARK: - Properties
     
     /// Current scene
-    private weak var currentScene: SKScene?
+    private unowned let currentScene: SKScene
     
     /// Moveable node
-    private var moveableNode = SKNode()
+    private let moveableNode: SKNode
     
     /// Scroll direction
-    private var scrollDirection = ScrollDirection.None
+    private var scrollDirection: ScrollDirection
     
     // MARK: - Init
     init(frame: CGRect, scene: SKScene, moveableNode: SKNode, scrollDirection: ScrollDirection) {
@@ -78,7 +77,7 @@ class CustomScrollView: UIScrollView {
         
         //contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 50, right: 0)
         
-        // flip for spritekit (only needed for horizontal)
+        // Flip for spritekit (only needed for horizontal)
         if self.scrollDirection == .Horizontal {
             let flip = CGAffineTransformMakeScale(-1,-1)
             self.transform = flip
@@ -98,7 +97,7 @@ extension CustomScrollView {
         print("Touch began scroll view")
         
         guard !CustomScrollView.disabledTouches else { return }
-        currentScene?.touchesBegan(touches, withEvent: event)
+        currentScene.touchesBegan(touches, withEvent: event)
     }
     
     /// moved
@@ -106,7 +105,7 @@ extension CustomScrollView {
         print("Touch moved scroll view")
         
         guard !CustomScrollView.disabledTouches else { return }
-        currentScene?.touchesMoved(touches, withEvent: event)
+        currentScene.touchesMoved(touches, withEvent: event)
     }
     
     /// ended
@@ -114,7 +113,7 @@ extension CustomScrollView {
         print("Touch ended scroll view")
         
         guard !CustomScrollView.disabledTouches else { return }
-        currentScene?.touchesEnded(touches, withEvent: event)
+        currentScene.touchesEnded(touches, withEvent: event)
     }
     
     /// cancelled
@@ -122,7 +121,7 @@ extension CustomScrollView {
         print("Touch cancelled scroll view")
         
         guard !CustomScrollView.disabledTouches else { return }
-        currentScene?.touchesCancelled(touches, withEvent: event)
+        currentScene.touchesCancelled(touches, withEvent: event)
     }
 }
 
