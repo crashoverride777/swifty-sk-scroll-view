@@ -89,24 +89,7 @@ page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(
 moveableNode.addChild(page3ScrollView)
 ```
 
-- Step 5: Make sure you scene registers for scroll view touch events, as in the buttons or labels added to the scrollView were pressed. So in all the touches methods you need/use you need to make sure that they basically looks like this.
-
-```swift
-for touch in touches {
-    let location = touch.locationInNode(self)
-
-
-    nodesTouched = nodesAtPoint(location)
-    for node in nodesTouched {
-        node.touchesBegan(touches, withEvent: event) // touches began in this case
-        print("Item in scroll view pressed/moved,ended")
-
-        // just do you thing here as usual
-     }
-}
-```
-
-- Step 6: Add your sprites to the screen
+- Step 5: Add your sprites to the screen
 
 Vertical scrolling
 ```swift
@@ -186,7 +169,9 @@ scrollView.removeFromSuperView()
 
 - v1.3
 
-Small fixes and improvements.
+Moved the method to forward button presses on nodes into the helper so there is no more need to implement it in the gameScene. Please update your helper and remove the methods in your touches method that used the nodesTouched array in the helper. 
+
+Other small fixes and improvements.
 
 - v1.2.1
 
