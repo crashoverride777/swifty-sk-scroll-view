@@ -16,6 +16,8 @@ class GameScene: SKScene {
     /// Moveable node in the scrollView
     let moveableNode = SKNode()
     
+    /// To register touches, make the sprite global.
+    /// Could also give each sprite a name and than check for the name in the touches methods
     var sprite1Page1: SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
@@ -143,7 +145,6 @@ class GameScene: SKScene {
         sprite1Page3.addChild(sprite2Page3)
     }
     
-    
     /// Touches began,
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
@@ -151,8 +152,8 @@ class GameScene: SKScene {
             let location = touch.locationInNode(self)
             let node = nodeAtPoint(location)
         
-            if node == sprite1Page1 {
-                print("Sprite on page 1 has been pressed")
+            if node == sprite1Page1 { // or check for spriteName  ->  if node.name == "SpriteName"
+                print("Sprite 1 on page 1 has been pressed")
             }
         }
     }
