@@ -16,6 +16,8 @@ class GameScene: SKScene {
     /// Moveable node in the scrollView
     let moveableNode = SKNode()
     
+    var sprite1Page1: SKSpriteNode!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -56,7 +58,7 @@ class GameScene: SKScene {
         moveableNode.addChild(page3ScrollView)
         
         /// Test sprites page 1
-        let sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
+        sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
         sprite1Page1.position = CGPointMake(0, 0)
         page1ScrollView.addChild(sprite1Page1)
         
@@ -114,7 +116,7 @@ class GameScene: SKScene {
         moveableNode.addChild(page3ScrollView)
         
         /// Test sprites page 1
-        let sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
+        sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
         sprite1Page1.position = CGPointMake(0, 0)
         page1ScrollView.addChild(sprite1Page1)
         
@@ -142,11 +144,17 @@ class GameScene: SKScene {
     }
     
     
-    
+    /// Touches began,
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
-    
-        print("Touches began")
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            let node = nodeAtPoint(location)
+        
+            if node == sprite1Page1 {
+                print("Sprite on page 1 has been pressed")
+            }
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {
