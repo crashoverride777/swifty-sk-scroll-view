@@ -44,7 +44,7 @@ class CustomScrollView: UIScrollView {
     
     // MARK: - Properties
     
-    /// Nodes touched
+    /// Nodes touched. This will forward touches to node subclasses.
     private var nodesTouched: [AnyObject] = []
     
     /// Current scene
@@ -94,6 +94,8 @@ extension CustomScrollView {
     
     /// Began
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //super.touchesBegan(touches, withEvent: event)
+        
         for touch in touches {
             let location = touch.locationInNode(currentScene)
         
@@ -112,6 +114,8 @@ extension CustomScrollView {
     
     /// Moved
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //super.touchesMoved(touches, withEvent: event)
+        
         for touch in touches {
             let location = touch.locationInNode(currentScene)
         
@@ -130,6 +134,8 @@ extension CustomScrollView {
     
     /// Ended
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //super.touchesEnded(touches, withEvent: event)
+        
         for touch in touches {
             let location = touch.locationInNode(currentScene)
             
@@ -148,6 +154,8 @@ extension CustomScrollView {
 
     /// Cancelled
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        //super.touchesCancelled(touches, withEvent: event)
+        
         for touch in touches! {
             let location = touch.locationInNode(currentScene)
         
@@ -170,14 +178,12 @@ extension CustomScrollView {
     
     /// Disable
     class func disable() {
-        print("Disabled scroll view")
         CustomScrollView.scrollView?.userInteractionEnabled = false
         CustomScrollView.disabledTouches = true
     }
     
     /// Enable
     class func enable() {
-        print("Enabled scroll view")
         CustomScrollView.scrollView?.userInteractionEnabled = true
         CustomScrollView.disabledTouches = false
     }
@@ -186,9 +192,7 @@ extension CustomScrollView {
 // MARK: - Delegates
 extension CustomScrollView: UIScrollViewDelegate {
     
-    /// did scroll
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        print("Scroll view did scroll")
         
         if scrollDirection == .Horizontal {
             moveableNode.position.x = scrollView.contentOffset.x
