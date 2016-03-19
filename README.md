@@ -169,6 +169,20 @@ scrollView.removeFromSuperView()
 
 # Release notes
 
+- v1.3.1
+
+Fixed an issue that could cause a crash when changing scenes.
+
+Please change this line in the helper
+
+      private unowned let: SKScene
+
+to
+
+      private let: SKScene
+      
+A big thanks for member iiMshl for pointing this out.
+
 - v1.3
 
 Moved the method to forward button presses on nodes into the helper so there is no more need to implement it in the gameScene. Please update your helper and remove the methods in your touches method that used the nodesTouched array in the helper (should show as error)
