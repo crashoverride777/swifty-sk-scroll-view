@@ -4,11 +4,19 @@ A simple helper to add a UIScrollView to your SpriteKit scenes. This helper only
 
 The helper will also automatically forwared button presses to the scene and button presses on nodes automatically as your touches method will fire as usual.
 
-It also only works well if your scene scaleMode in your gameViewController is set to
+It works best if your scale mode in your gameViewController is set to
 ```swift
 .ResizeFill
 ```
-which makes sure that your scenes do not get cropped. If you use other scaleModes such as ".AspectFill" than it might crop stuff in your scenes and therefore  the ScrollView, which you would than need to adjust for. 
+or 
+
+the scene size is set to the view size
+```swift
+let skView = view as! SKView!
+let scene = GameScene(size: skView.bounds.size)
+```
+
+which makes sure that your scenes do not get cropped. If you use other scaleModes such as ".AspectFill" than it might crop stuff in your scenes and therefore the ScrollView, which you would than need to adjust for. You will have to play around with your settings to get the best result.
 
 # How to use
 
@@ -26,7 +34,7 @@ and add it to the scene in viewDidLoad
 addChild(moveableNode)
 ```
 
-- Step 3: Init the scroll view helper. Create a property like so
+- Step 3: Init the scroll view helper. Create a weak property like so
 
 ```swift
 weak var scrollView: CustomScrollView!
@@ -38,7 +46,7 @@ Vertical scrolling
 ```swift
 scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Vertical)
 scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3) // makes it 3 times the height
-view!.addSubview(scrollView)
+view?.addSubview(scrollView)
 ```
 
 Horizontal scrolling
@@ -164,7 +172,7 @@ CustomScrollView.disable()
 - Step 8: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in SpriteKit.
 
 ```swift
-scrollView.removeFromSuperView()
+scrollView?.removeFromSuperView()
 ```
 
 # Release notes
