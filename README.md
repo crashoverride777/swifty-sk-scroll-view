@@ -122,7 +122,7 @@ let sprite2Page2 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 5
 sprite2Page2.position = CGPointMake(sprite1Page2.position.x, sprite1Page2.position.y - (sprite2Page2.size.height * 1.5))
 sprite1Page2.addChild(sprite2Page2)
         
-/// Test sprites page 2
+/// Test sprites page 3
 let sprite1Page3 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
 sprite1Page3.position = CGPointMake(0, 0)
 page3ScrollView.addChild(sprite1Page3)
@@ -152,7 +152,7 @@ let sprite2Page2 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 5
 sprite2Page2.position = CGPointMake(sprite1Page2.position.x + (sprite2Page2.size.width * 1.5), sprite1Page2.position.y)
 sprite1Page2.addChild(sprite2Page2)
         
-/// Test sprites page 2
+/// Test sprites page 3
 let sprite1Page3 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
 sprite1Page3.position = CGPointMake(0, 0)
 page3ScrollView.addChild(sprite1Page3)
