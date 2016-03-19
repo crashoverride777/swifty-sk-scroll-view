@@ -154,6 +154,10 @@ class GameScene: SKScene {
         
             if node == sprite1Page1 { // or check for spriteName  ->  if node.name == "SpriteName"
                 print("Sprite 1 on page 1 has been pressed")
+                scrollView?.removeFromSuperview()
+                let scene = MenuScene(size: self.size)
+                let transition = SKTransition.crossFadeWithDuration(1)
+                view?.presentScene(scene, transition: transition)
             }
         }
     }

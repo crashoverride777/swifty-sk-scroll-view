@@ -21,7 +21,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v1.3
+//    v1.3.1
 
 import SpriteKit
 
@@ -48,13 +48,18 @@ class CustomScrollView: UIScrollView {
     private var nodesTouched: [AnyObject] = []
     
     /// Current scene
-    private unowned let currentScene: SKScene
+    private let currentScene: SKScene
     
     /// Moveable node
     private let moveableNode: SKNode
     
     /// Scroll direction
     private var scrollDirection: ScrollDirection
+    
+    // MARK: - Deinit
+    deinit {
+        print("Custom scroll view deinit")
+    }
     
     // MARK: - Init
     init(frame: CGRect, scene: SKScene, moveableNode: SKNode, scrollDirection: ScrollDirection) {
