@@ -43,7 +43,7 @@ class GameScene: SKScene {
         scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Vertical)
         scrollView.center = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3) // * 3 makes it 3times as long as screen
-        view!.addSubview(scrollView)
+        view?.addSubview(scrollView)
 
         /// ScrollView Sprites for each page in scrollView
         /// Makes positioning much easier.
@@ -95,7 +95,7 @@ class GameScene: SKScene {
         /// Set up scrollView
         scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Horizontal)
         scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height) // * 3 makes it three times as wide as screen
-        view!.addSubview(scrollView)
+        view?.addSubview(scrollView)
         
         /// Set scrollView to first page
         scrollView.setContentOffset(CGPoint(x: 0 + self.frame.size.width * 2, y: 0), animated: true)
