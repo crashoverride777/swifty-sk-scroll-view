@@ -1,22 +1,10 @@
 # Swift-2-SpriteKit-UIScrollView
 
 A simple helper to add a UIScrollView to your SpriteKit scenes. This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
+Depending on your scene scale mode cropping could occur so you might have play around with your settings to get the best result.
 
 The helper will also automatically forwared button presses to the scene and button presses on nodes automatically as your touches method will fire as usual.
 
-It works best if your scale mode in your gameViewController is set to
-```swift
-.ResizeFill
-```
-or 
-
-the scene size is set to the view size
-```swift
-let skView = view as! SKView!
-let scene = GameScene(size: skView.bounds.size)
-```
-
-which makes sure that your scenes do not get cropped. If you use other scaleModes such as ".AspectFill" than it might crop stuff in your scenes and therefore the ScrollView, which you would than need to adjust for. You will have to play around with your settings to get the best result.
 
 # How to use
 
