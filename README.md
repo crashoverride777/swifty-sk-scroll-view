@@ -15,25 +15,25 @@ If you want something like a level select screen where there will be alot of but
 
 - Step 1: Add the CustomScrollView.swift file to your project
 
-- Step 2: In your relevant SKScene you want to use it you create a moveable node
+- Step 2: In your relevant SKScene you want to use it you create those 2 properties
  
 ```swift
-var moveableNode = SKNode()
+class MenuScene: SKScene {
+    var moveableNode = SKNode()
+    weak var scrollView: CustomScrollView!
+    ...
+}
 ```
 
-and add it to the scene in viewDidLoad
+- Step 3: - Set up the properties from step 2.
+
+In didMoveToView add the moveable node
 
 ```swift
 addChild(moveableNode)
 ```
 
-- Step 3: Init the scroll view helper. Create a weak property like so
-
-```swift
-weak var scrollView: CustomScrollView!
-```
-
-and set the scrollView in viewDidLoad like so
+and set up the scrollView
 
 Vertical scrolling
 ```swift
@@ -57,7 +57,7 @@ Line 2 is where you set up the content size of the scrollView.
 
 Line 3 adds the scrollView to the subview
 
-Line 4 for horizontal scrolling resets the contentOffset so you start from left to right.
+Line 4 for horizontal scrolling resets the contentOffset so you start from left to right (UIKit coordinates are different to SpriteKits).
 
 - Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
 
@@ -92,7 +92,7 @@ page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(
 moveableNode.addChild(page3ScrollView)
 ```
 
-- Step 5: Add your sprites to the screen
+- Step 5: Add your sprites, labels etc. Because you will add them to the above sprites you can position them as usual which is why its much easier to do Step 4 first.
 
 Vertical scrolling
 ```swift
