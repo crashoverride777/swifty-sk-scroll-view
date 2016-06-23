@@ -54,7 +54,7 @@ class CustomScrollView: UIScrollView {
     private let moveableNode: SKNode
     
     /// Scroll direction
-    private var scrollDirection: ScrollDirection
+    private let scrollDirection: ScrollDirection
     
     // MARK: - Deinit
     deinit {
