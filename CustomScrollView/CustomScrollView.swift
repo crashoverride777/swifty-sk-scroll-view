@@ -27,7 +27,7 @@ import SpriteKit
 
 /// Scroll direction
 enum ScrollDirection {
-    case vertical
+    case vertical // cases start with small letters as I am following swift 3 guidlines 
     case horizontal
 }
 
