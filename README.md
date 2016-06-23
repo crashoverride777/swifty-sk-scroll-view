@@ -19,8 +19,8 @@ If you want something like a level select screen where there will be alot of but
  
 ```swift
 class MenuScene: SKScene {
-    let moveableNode = SKNode()
     weak var scrollView: CustomScrollView!
+    let moveableNode = SKNode()
     ...
 }
 ```
@@ -37,14 +37,14 @@ and set up the scrollView
 
 Vertical scrolling
 ```swift
-scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Vertical)
+scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .vertical)
 scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3) // makes it 3 times the height
 view?.addSubview(scrollView)
 ```
 
 Horizontal scrolling
 ```swift
-scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Horizontal)
+scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .horizontal)
 scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height) // * 3 makes it three times as wide
 view?.addSubview(scrollView)
 
