@@ -12,6 +12,14 @@ class MenuScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.redColor()
+        
+        let clickLabel = SKLabelNode(fontNamed: "HelveticalNeue")
+        clickLabel.horizontalAlignmentMode = .Center
+        clickLabel.verticalAlignmentMode = .Center
+        clickLabel.text = "Tap"
+        clickLabel.fontSize = 32
+        clickLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        addChild(clickLabel)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

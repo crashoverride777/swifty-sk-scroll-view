@@ -21,14 +21,14 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v1.3.1
+//    v1.4
 
 import SpriteKit
 
 /// Scroll direction
-enum ScrollDirection: Int {
-    case Vertical
-    case Horizontal
+enum ScrollDirection {
+    case vertical
+    case horizontal
 }
 
 /// Custom UIScrollView class
@@ -45,7 +45,7 @@ class CustomScrollView: UIScrollView {
     // MARK: - Properties
     
     /// Nodes touched. This will forward touches to node subclasses.
-    private var nodesTouched: [AnyObject] = []
+    private var nodesTouched = [AnyObject]()
     
     /// Current scene
     private let currentScene: SKScene
@@ -70,22 +70,17 @@ class CustomScrollView: UIScrollView {
         
         CustomScrollView.scrollView = self
         self.frame = frame
+        delegate = self
         indicatorStyle = .White
         scrollEnabled = true
+        userInteractionEnabled = true
+        //canCancelContentTouches = false
         //self.minimumZoomScale = 1
         //self.maximumZoomScale = 3
-        canCancelContentTouches = false
-        userInteractionEnabled = true
-        delegate = self
         
-        clipsToBounds = true
-        
-        //contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 50, right: 0)
-        
-        // Flip for spritekit (only needed for horizontal)
-        if self.scrollDirection == .Horizontal {
+        if scrollDirection == .horizontal {
             let flip = CGAffineTransformMakeScale(-1,-1)
-            self.transform = flip
+            transform = flip
         }
     }
     
@@ -199,7 +194,7 @@ extension CustomScrollView: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        if scrollDirection == .Horizontal {
+        if scrollDirection == .horizontal {
             moveableNode.position.x = scrollView.contentOffset.x
         } else {
             moveableNode.position.y = scrollView.contentOffset.y

@@ -19,6 +19,7 @@ class GameScene: SKScene {
     /// To register touches, make the sprite global.
     /// Could also give each sprite a name and than check for the name in the touches methods
     var sprite1Page1: SKSpriteNode!
+    var clickLabel: SKLabelNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -40,7 +41,7 @@ class GameScene: SKScene {
     func prepareVerticalScrolling() {
         
         /// set up scrollView
-        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Vertical)
+        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .vertical)
         scrollView.center = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3) // * 3 makes it 3times as long as screen
         view?.addSubview(scrollView)
@@ -63,6 +64,15 @@ class GameScene: SKScene {
         sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
         sprite1Page1.position = CGPointMake(0, 0)
         page1ScrollView.addChild(sprite1Page1)
+        
+        clickLabel = SKLabelNode(fontNamed: "HelveticalNeue")
+        clickLabel.horizontalAlignmentMode = .Center
+        clickLabel.verticalAlignmentMode = .Center
+        clickLabel.text = "Tap"
+        clickLabel.fontSize = 18
+        clickLabel.position = CGPoint(x: 0, y: 0)
+        sprite1Page1.addChild(clickLabel)
+        
         
         let sprite2Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
         sprite2Page1.position = CGPointMake(sprite1Page1.position.x, sprite1Page1.position.y - sprite2Page1.size.height * 1.5)
@@ -93,7 +103,7 @@ class GameScene: SKScene {
     func prepareHorizontalScrolling() {
         
         /// Set up scrollView
-        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .Horizontal)
+        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .horizontal)
         scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height) // * 3 makes it three times as wide as screen
         view?.addSubview(scrollView)
         
@@ -121,6 +131,14 @@ class GameScene: SKScene {
         sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
         sprite1Page1.position = CGPointMake(0, 0)
         page1ScrollView.addChild(sprite1Page1)
+        
+        clickLabel = SKLabelNode(fontNamed: "HelveticalNeue")
+        clickLabel.horizontalAlignmentMode = .Center
+        clickLabel.verticalAlignmentMode = .Center
+        clickLabel.text = "Tap"
+        clickLabel.fontSize = 18
+        clickLabel.position = CGPoint(x: 0, y: 0)
+        sprite1Page1.addChild(clickLabel)
         
         let sprite2Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
         sprite2Page1.position = CGPointMake(sprite1Page1.position.x + (sprite2Page1.size.width * 1.5), sprite1Page1.position.y)
@@ -152,7 +170,7 @@ class GameScene: SKScene {
             let location = touch.locationInNode(self)
             let node = nodeAtPoint(location)
         
-            if node == sprite1Page1 { // or check for spriteName  ->  if node.name == "SpriteName"
+            if node == sprite1Page1 || node == clickLabel { // or check for spriteName  ->  if node.name == "SpriteName"
                 print("Sprite 1 on page 1 has been pressed")
                 scrollView?.removeFromSuperview()
                 let scene = MenuScene(size: self.size)
