@@ -170,6 +170,10 @@ scrollView?.removeFromSuperView()
 
 # Release notes
 
+- v1.4
+
+Clean-Up
+
 - v1.3.1
 
 Fixed an issue that could cause a crash when changing scenes.
