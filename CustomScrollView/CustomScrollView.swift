@@ -56,11 +56,6 @@ class CustomScrollView: UIScrollView {
     /// Scroll direction
     private let scrollDirection: ScrollDirection
     
-    // MARK: - Deinit
-    deinit {
-        print("Custom scroll view deinit")
-    }
-    
     // MARK: - Init
     init(frame: CGRect, scene: SKScene, moveableNode: SKNode, scrollDirection: ScrollDirection) {
         self.currentScene = scene
