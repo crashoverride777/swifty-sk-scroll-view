@@ -74,8 +74,7 @@ class CustomScrollView: UIScrollView {
         //self.maximumZoomScale = 3
         
         if scrollDirection == .horizontal {
-            let flip = CGAffineTransformMakeScale(-1,-1)
-            transform = flip
+            transform = CGAffineTransformMakeScale(-1,-1)
         }
     }
     
