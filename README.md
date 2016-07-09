@@ -37,21 +37,21 @@ and set up the scrollView
 
 Vertical scrolling
 ```swift
-scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .vertical)
+scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), moveableNode: moveableNode, scrollDirection: .vertical)
 scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3) // makes it 3 times the height
 view?.addSubview(scrollView)
 ```
 
 Horizontal scrolling
 ```swift
-scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), scene: self, moveableNode: moveableNode, scrollDirection: .horizontal)
+scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), moveableNode: moveableNode, scrollDirection: .horizontal)
 scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height) // * 3 makes it three times as wide
 view?.addSubview(scrollView)
 
 scrollView.setContentOffset(CGPoint(x: 0 + self.frame.size.width * 2, y: 0), animated: true)
 ```
 
-Line 1 inits the helper with your scene dimensions. You also pass along the scene for reference, the moveableNode you created at step 2 and the scrollDirection. 
+Line 1 inits the helper with your scene dimensions. You also pass along the moveableNode you created at step 2 and the scrollDirection you want. 
 
 Line 2 is where you set up the content size of the scrollView.
 
@@ -169,6 +169,10 @@ scrollView?.removeFromSuperView()
 ```
 
 # Release notes
+
+- v1.4.1
+
+Small improvements
 
 - v1.4
 
