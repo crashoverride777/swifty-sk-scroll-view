@@ -1,4 +1,4 @@
-# Swift-2-SpriteKit-UIScrollView
+# Swift SpriteKit UIScrollView Helper
 
 A simple helper to add a UIScrollView to your SpriteKit scenes. 
 This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
