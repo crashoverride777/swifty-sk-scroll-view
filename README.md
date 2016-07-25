@@ -35,14 +35,14 @@ addChild(moveableNode)
 
 and set up the scrollView
 
-- Vertical scrolling
+Vertical scrolling
 ```swift
 scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), moveableNode: moveableNode, scrollDirection: .vertical)
 scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3) // makes it 3 times the height
 view?.addSubview(scrollView)
 ```
 
-- Horizontal scrolling
+Horizontal scrolling
 ```swift
 scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height), moveableNode: moveableNode, scrollDirection: .horizontal)
 scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height) // * 3 makes it three times as wide
@@ -61,7 +61,7 @@ Line 4 for horizontal scrolling resets the contentOffset so you start from left 
 
 - Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
 
-- Vertical scrolling
+Vertical scrolling
 ```swift
 let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
 page1ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
@@ -76,7 +76,7 @@ page3ScrollView.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(
 moveableNode.addChild(page3ScrollView)
 ```
 
-- Horizontal scrolling (positioning is in reverse)
+Horizontal scrolling (positioning is in reverse)
 ```swift
 let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
 page1ScrollView.position = CGPointMake(CGRectGetMidX(self.frame) - (self.frame.size.width * 2), CGRectGetMidY(self.frame))
@@ -94,7 +94,7 @@ moveableNode.addChild(page3ScrollView)
 
 - Step 5: Add your sprites, labels etc. Because you will add them to the above sprites you can position them as usual which is why its much easier to do Step 4 first.
 
-- Vertical scrolling
+Vertical scrolling
 ```swift
 
 /// Test sprites page 1
@@ -125,7 +125,7 @@ sprite2Page3.position = CGPointMake(sprite1Page3.position.x, sprite1Page3.positi
 sprite1Page3.addChild(sprite2Page3)
 ```
 
-- Horizontal
+Horizontal
 ```swift
 /// Test sprites page 1
 let sprite1Page1 = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 50, height: 50))
