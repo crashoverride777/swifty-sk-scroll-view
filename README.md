@@ -11,7 +11,7 @@ This helper works best for smaller scrollable lists for things such as character
 If you want something like a level select screen where there will be alot of buttons than its best to use a UICollectionView as it will make your life easier and the menu more efficient due to cell reusage. You can easily subclass UICollectionView in similar fashion to this helper.
 
 
-# Base setup
+# # How to use
 
 - Step 1: Add the CustomScrollView.swift file to your project
 
