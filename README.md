@@ -38,7 +38,7 @@ and set up the scrollView
 Vertical scrolling
 ```swift
 scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height), moveableNode: moveableNode, scrollDirection: .vertical)
-scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3) // makes it 3 times the height
+scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height * 3) // makes it 3 times the height
 view?.addSubview(scrollView)
 ```
 
@@ -63,30 +63,30 @@ Line 4 for horizontal scrolling resets the contentOffset so you start from left 
 
 Vertical scrolling
 ```swift
-let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
+let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height))
 page1ScrollView.position = CGPoint(x: frame.midX, y: frame.midY)
 moveableNode.addChild(page1ScrollView)
         
-let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
+let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height))
 page2ScrollView.position = CGPoint(x: frame.midX, y: frame.midY - frame.size.height)
 moveableNode.addChild(page2ScrollView)
         
-let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
+let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height))
 page3ScrollView.position = CGPoint(x: frame.midX, y: frame.midY - (frame.size.height * 2))
 moveableNode.addChild(page3ScrollView)
 ```
 
 Horizontal scrolling (positioning is in reverse)
 ```swift
-let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
+let page1ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height))
 page1ScrollView.position = CGPoint(x: frame.midX - (frame.size.width * 2), y: frame.midY)
 moveableNode.addChild(page1ScrollView)
         
-let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
+let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height))
 page2ScrollView.position = CGPoint(x: frame.midX - (self.frame.size.width), y: frame.midY)
 moveableNode.addChild(page2ScrollView)
         
-let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height))
+let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height))
 page3ScrollView.zPosition = -1
 page3ScrollView.position = CGPoint(x: frame.midX, y: frame.midY)
 moveableNode.addChild(page3ScrollView)
