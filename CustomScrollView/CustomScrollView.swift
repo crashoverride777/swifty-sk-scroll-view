@@ -21,7 +21,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v1.4.1
+//    v1.4.2
 
 import SpriteKit
 
@@ -184,5 +184,7 @@ extension CustomScrollView: UIScrollViewDelegate {
         } else {
             moveableNode.position.y = scrollView.contentOffset.y
         }
+        
+        //print(scrollView.contentOffset)
     }
 }

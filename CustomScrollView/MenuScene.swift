@@ -18,12 +18,12 @@ class MenuScene: SKScene {
         clickLabel.verticalAlignmentMode = .Center
         clickLabel.text = "Tap"
         clickLabel.fontSize = 32
-        clickLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        clickLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         addChild(clickLabel)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let scene = GameScene(size: self.size)
+        let scene = GameScene(size: size)
         let transition = SKTransition.crossFadeWithDuration(1)
         view?.presentScene(scene, transition: transition)
     }
