@@ -83,7 +83,7 @@ page1ScrollView.position = CGPoint(x: frame.midX - (frame.width * 2), y: frame.m
 moveableNode.addChild(page1ScrollView)
         
 let page2ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: scrollView.frame.width, height: scrollView.frame.size.height))
-page2ScrollView.position = CGPoint(x: frame.midX - (self.frame.width), y: frame.midY)
+page2ScrollView.position = CGPoint(x: frame.midX - (frame.width), y: frame.midY)
 moveableNode.addChild(page2ScrollView)
         
 let page3ScrollView = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: scrollView.frame.width, height: scrollView.frame.size.height))
