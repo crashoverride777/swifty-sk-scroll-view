@@ -19,7 +19,7 @@ If you want something like a level select screen where there will be alot of but
  
 ```swift
 class MenuScene: SKScene {
-    weak var scrollView: CustomScrollView!
+    weak var scrollView: CustomScrollView
     let moveableNode = SKNode()
     ...
 }
