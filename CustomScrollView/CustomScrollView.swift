@@ -48,11 +48,14 @@ class CustomScrollView: UIScrollView {
     
     // MARK: - Init
     
-    init(frame: CGRect, scene: SKScene, moveableNode: SKNode, scrollDirection: ScrollDirection) {
-        self.currentScene = scene
+    init(frame: CGRect, moveableNode: SKNode, scrollDirection: ScrollDirection) {
         self.moveableNode = moveableNode
         self.scrollDirection = scrollDirection
         super.init(frame: frame)
+        
+        if let scene = moveableNode.scene {
+            self.currentScene = scene
+        }
         
         CustomScrollView.scrollView = self
         
