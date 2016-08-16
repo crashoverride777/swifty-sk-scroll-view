@@ -41,23 +41,20 @@ class CustomScrollView: UIScrollView {
     
     // MARK: - Properties
     
-    private var currentScene: SKScene?
+    private weak var currentScene: SKScene?
     private let moveableNode: SKNode
     private let scrollDirection: ScrollDirection
     private var nodesTouched = [AnyObject]() /// Nodes touched. This will forward touches to node subclasses.
     
     // MARK: - Init
     
-    init(frame: CGRect, moveableNode: SKNode, scrollDirection: ScrollDirection) {
+    init(frame: CGRect, scene: SKScene, moveableNode: SKNode, scrollDirection: ScrollDirection) {
+        self.currentScene = scene
         self.moveableNode = moveableNode
         self.scrollDirection = scrollDirection
         super.init(frame: frame)
         
         CustomScrollView.scrollView = self
-        
-        if let currentScene = moveableNode.scene {
-            self.currentScene = currentScene
-        }
         
         self.frame = frame
         delegate = self

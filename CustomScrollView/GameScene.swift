@@ -23,6 +23,10 @@ class GameScene: SKScene {
     /// Click label
     private var clickLabel: SKLabelNode!
     
+    deinit {
+        print("Deinit game scene")
+    }
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -40,7 +44,7 @@ class GameScene: SKScene {
     func prepareVerticalScrolling() {
         
         /// set up scrollView
-        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, scrollDirection: .vertical)
+        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), scene: self, moveableNode: moveableNode, scrollDirection: .vertical)
         scrollView.center = CGPoint(x: frame.midX, y: frame.midY)
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height * 3) // * 3 makes it 3times as long as screen
         view?.addSubview(scrollView)
@@ -100,7 +104,7 @@ class GameScene: SKScene {
     func prepareHorizontalScrolling() {
         
         /// Set up scrollView
-        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, scrollDirection: .horizontal)
+        scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), scene: self, moveableNode: moveableNode, scrollDirection: .horizontal)
         scrollView.contentSize = CGSize(width: scrollView.frame.width * 3, height: scrollView.frame.height) // * 3 makes it three times as wide as screen
         view?.addSubview(scrollView)
         
