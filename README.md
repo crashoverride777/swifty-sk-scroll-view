@@ -4,7 +4,7 @@ A simple helper to add a UIScrollView to your SpriteKit scenes.
 This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
 Depending on your scene scale mode cropping could occur so you might have play around with your settings to get the best result.
 
-The helper will also automatically forwared button presses to the scene and button presses on nodes. Therefore in your SKScenes your touches method will fire as usual.
+The helper will also automatically forward button presses to the scene and button presses on nodes. Therefore in your SKScenes and SKSpriteNode sublcass the touches method will fire as usual.
 
 This helper works best for smaller scrollable lists for things such as character select screens.
 
@@ -19,7 +19,7 @@ If you want something like a level select screen where there will be alot of but
  
 ```swift
 class MenuScene: SKScene {
-    weak var scrollView: CustomScrollView
+    weak var scrollView: CustomScrollView!
     let moveableNode = SKNode()
     ...
 }
