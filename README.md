@@ -170,6 +170,10 @@ scrollView?.removeFromSuperView()
 
 # Release notes
 
+- v1.4.3
+
+Updated to Swift 3
+
 - v1.4.2
 
 Cleanup
