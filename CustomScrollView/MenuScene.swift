@@ -10,21 +10,22 @@ import SpriteKit
 
 class MenuScene: SKScene {
     
-    override func didMoveToView(view: SKView) {
-        backgroundColor = SKColor.redColor()
+    override func didMove(to view: SKView) {
+        backgroundColor = SKColor.red
         
         let clickLabel = SKLabelNode(fontNamed: "HelveticalNeue")
-        clickLabel.horizontalAlignmentMode = .Center
-        clickLabel.verticalAlignmentMode = .Center
+        clickLabel.horizontalAlignmentMode = .center
+        clickLabel.verticalAlignmentMode = .center
         clickLabel.text = "Tap"
         clickLabel.fontSize = 32
         clickLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         addChild(clickLabel)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let scene = GameScene(size: size)
-        let transition = SKTransition.crossFadeWithDuration(1)
+        scene.scaleMode = .aspectFill
+        let transition = SKTransition.crossFade(withDuration: 1)
         view?.presentScene(scene, transition: transition)
     }
 }
