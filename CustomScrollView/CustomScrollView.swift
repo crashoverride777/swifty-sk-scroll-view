@@ -184,7 +184,5 @@ extension CustomScrollView: UIScrollViewDelegate {
         } else {
             moveableNode.position.y = scrollView.contentOffset.y
         }
-        
-        //print(scrollView.contentOffset)
     }
 }
