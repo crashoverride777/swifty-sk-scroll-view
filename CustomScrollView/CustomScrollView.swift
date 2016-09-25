@@ -21,7 +21,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v1.4.3
+//    v1.4.4
 
 import SpriteKit
 
@@ -31,23 +31,42 @@ enum ScrollDirection {
     case horizontal
 }
 
-/// Custom UIScrollView class
+/**
+ Custom UIScrollView
+ 
+ A custom UIScrollView class to add to your SpriteKit SKScenes
+ */
 class CustomScrollView: UIScrollView {
     
     // MARK: - Static Properties
 
+    /// Disabled touches
     fileprivate static var disabledTouches = false
+    
+    /// Scroll view reference
     fileprivate static var scrollView: UIScrollView?
     
     // MARK: - Properties
     
+    /// Current scene reference
     fileprivate weak var currentScene: SKScene?
+    
+    /// Moveable node
     fileprivate let moveableNode: SKNode
+    
+    /// Scroll direction
     fileprivate let scrollDirection: ScrollDirection
-    fileprivate var nodesTouched = [AnyObject]() /// Nodes touched. This will forward touches to node subclasses.
+    
+    /// Nodes touched. This will forward touches to node subclasses.
+    fileprivate var nodesTouched = [AnyObject]()
     
     // MARK: - Init
     
+    /// Init
+    ///
+    /// - parameter frame: The frame of the scroll view
+    /// - parameter moveableNode: The moveable node that will contain all the sprites to be moved by the scrollview
+    /// - parameter scrollDirection: The scroll direction of the scrollView.
     init(frame: CGRect, moveableNode: SKNode, scrollDirection: ScrollDirection) {
         self.moveableNode = moveableNode
         self.scrollDirection = scrollDirection
@@ -75,6 +94,20 @@ class CustomScrollView: UIScrollView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Static Methods
+    
+    /// Disable scroll view touches
+    static func disableTouches() {
+        CustomScrollView.scrollView?.isUserInteractionEnabled = false
+        CustomScrollView.disabledTouches = true
+    }
+    
+    /// Enable scroll view touches
+    static func enableTouches() {
+        CustomScrollView.scrollView?.isUserInteractionEnabled = true
+        CustomScrollView.disabledTouches = false
     }
 }
 
@@ -159,23 +192,9 @@ extension CustomScrollView {
     }
 }
 
-// MARK: - Touch Controls
-
-extension CustomScrollView {
-    
-    class func disable() {
-        CustomScrollView.scrollView?.isUserInteractionEnabled = false
-        CustomScrollView.disabledTouches = true
-    }
-    
-    class func enable() {
-        CustomScrollView.scrollView?.isUserInteractionEnabled = true
-        CustomScrollView.disabledTouches = false
-    }
-}
-
 // MARK: - Delegates
 
+/// UIScrollViewDelegate
 extension CustomScrollView: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
