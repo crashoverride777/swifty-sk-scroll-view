@@ -1,7 +1,4 @@
-# Swift SpriteKit UIScrollView Helper
-
-Note: I will lock down this project withing the next 1-2 updates. This means there will be no more source breaking changes which I am sure is frustrating some. All future changes will be handled via deprecated warnings. I am also looking to create a cocoa pod for this project very soon.
-
+# SwiftySKScrollView
 
 A simple helper to add a UIScrollView to your SpriteKit scenes. 
 This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
@@ -16,13 +13,13 @@ If you want something like a level select screen where there will be alot of but
 
 # # How to use
 
-- Step 1: Add the CustomScrollView.swift file to your project
+- Step 1: Add the SwiftySKScrollView.swift file to your project
 
 - Step 2: In your relevant SKScene you want to use it you create those 2 properties
  
 ```swift
 class MenuScene: SKScene {
-    weak var scrollView: CustomScrollView?
+    weak var scrollView: SwiftySKScrollView?
     let moveableNode = SKNode()
     ...
 }
@@ -40,7 +37,7 @@ and set up the scrollView
 
 Vertical scrolling
 ```swift
-scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, scrollDirection: .vertical)
+scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, scrollDirection: .vertical)
 
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width, height: scrollView!.frame.height * 3) // makes it 3 times the height
 view?.addSubview(scrollView!)
@@ -48,7 +45,7 @@ view?.addSubview(scrollView!)
 
 Horizontal scrolling
 ```swift
-scrollView = CustomScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, scrollDirection: .horizontal)
+scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, scrollDirection: .horizontal)
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width * 3, height: scrollView!.frame.height) // * 3 makes it three times as wide
 view?.addSubview(scrollView!)
 
@@ -166,8 +163,8 @@ sprite1Page3.addChild(sprite2Page3)
 - Step 7: I made some class func so if you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button. You will have to play around here and see how your buttons interact with the scrollView.
 
 ```swift
-CustomScrollView.enableTouches()
-CustomScrollView.disableTouches()
+SwiftySKScrollView.enableTouches()
+SwiftySKScrollView.disableTouches()
 ```
 
 - Step 8: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in SpriteKit.
@@ -178,63 +175,6 @@ scrollView?.removeFromSuperView()
 
 # Release notes
 
-- v1.4.4
+- v2.0
 
-Cleanup and documentation fixes
 
-The static touch control methods are now called
-
-```swift
-CustomScrollView.enableTouches()
-CustomScrollView.disableTouches()
-```
-
-- v1.4.3
-
-Updated to Swift 3
-
-- v1.4.2
-
-Cleanup
-
-- v1.4.1
-
-Small improvements
-
-- v1.4
-
-Clean-Up
-
-- v1.3.1
-
-Fixed an issue that could cause a crash when changing scenes.
-
-Please change this line in the helper
-
-      private unowned let: SKScene
-
-to
-
-      private let: SKScene
-      
-A big thanks for member iiMshl for pointing this out.
-
-- v1.3
-
-Moved the method to forward button presses on nodes into the helper so there is no more need to implement it in the gameScene. Please update your helper and remove the methods in your touches method that used the nodesTouched array in the helper (should show as error)
-
-Other small fixes and improvements.
-
-- v1.2.1
-
-Clean-up
-
-- v1.2
-
-Updated sample project to show how to add more sprites to the same scrollView page.
-
-- v1.1
-
-Small improvements to make it easier to select vertical or horizontal scrolling without having to adjust some settings in the helper manually.
-
-- v1.0
