@@ -160,11 +160,10 @@ sprite2Page3.position = CGPoint(x: sprite1Page3.position.x + (sprite2Page3.size.
 sprite1Page3.addChild(sprite2Page3)
 ```
 
-- Step 7: I made some class func so if you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button. You will have to play around here and see how your buttons interact with the scrollView.
+- Step 7: If you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button you can use the isDisabled bool. You will have to play around here and see how your buttons interact with the scrollView.
 
 ```swift
-SwiftySKScrollView.enableTouches()
-SwiftySKScrollView.disableTouches()
+SwiftySKScrollView.isDisabled = false
 ```
 
 - Step 8: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in SpriteKit.
