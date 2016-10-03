@@ -177,4 +177,6 @@ scrollView?.removeFromSuperView()
 
 - v2.0
 
+Project has been renamed to SwiftySKScrollView
 
+No more source breaking changes after this update. All future changes will be handled with deprecated messages.
