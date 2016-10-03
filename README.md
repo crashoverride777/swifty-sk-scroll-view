@@ -2,6 +2,7 @@
 
 Note: I will lock down this project withing the next 1-2 updates. This means there will be no more source breaking changes which I am sure is frustrating some. All future changes will be handled via deprecated warnings. I am also looking to create a cocoa pod for this project very soon.
 
+
 A simple helper to add a UIScrollView to your SpriteKit scenes. 
 This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
 Depending on your scene scale mode cropping could occur so you might have play around with your settings to get the best result.
