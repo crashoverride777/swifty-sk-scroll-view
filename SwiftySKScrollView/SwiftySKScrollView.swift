@@ -34,11 +34,11 @@ public class SwiftySKScrollView: UIScrollView {
     
     // MARK: - Static Properties
 
-    /// Disabled touches
-    fileprivate static var isDisabledTouches = false
-    
     /// Scroll view reference
     fileprivate static var scrollView: UIScrollView?
+    
+    /// Disabled touches
+    private static var isDisabledTouches = false
     
     // MARK: - Properties
     
