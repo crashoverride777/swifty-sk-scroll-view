@@ -38,7 +38,15 @@ public class SwiftySKScrollView: UIScrollView {
     fileprivate static var scrollView: UIScrollView?
     
     /// Disabled touches
-    private static var isDisabledTouches = false
+    private static var isDisabled = false {
+        didSet {
+            if isDisabled {
+                SwiftySKScrollView.scrollView?.isUserInteractionEnabled = false
+            } else {
+                SwiftySKScrollView.scrollView?.isUserInteractionEnabled = true
+            }
+        }
+    }
     
     // MARK: - Properties
     
@@ -76,6 +84,7 @@ public class SwiftySKScrollView: UIScrollView {
         }
         
         SwiftySKScrollView.scrollView = self
+        SwiftySKScrollView.isDisabled = false // if a new instance is created reset to false, incase user forgot
         
         self.frame = frame
         delegate = self
@@ -95,20 +104,6 @@ public class SwiftySKScrollView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Static Methods
-    
-    /// Disable scroll view touches
-    public static func disableTouches() {
-        SwiftySKScrollView.scrollView?.isUserInteractionEnabled = false
-        SwiftySKScrollView.isDisabledTouches = true
-    }
-    
-    /// Enable scroll view touches
-    public static func enableTouches() {
-        SwiftySKScrollView.scrollView?.isUserInteractionEnabled = true
-        SwiftySKScrollView.isDisabledTouches = false
-    }
-
     // MARK: - Touches
 
     /// Touches began
@@ -120,7 +115,7 @@ public class SwiftySKScrollView: UIScrollView {
         for touch in touches {
             let location = touch.location(in: currentScene)
         
-            guard !SwiftySKScrollView.isDisabledTouches else { return }
+            guard !SwiftySKScrollView.isDisabled else { return }
             
             currentScene.touchesBegan(touches, with: event)
             nodesTouched = currentScene.nodes(at: location)
@@ -139,7 +134,7 @@ public class SwiftySKScrollView: UIScrollView {
         for touch in touches {
             let location = touch.location(in: currentScene)
         
-            guard !SwiftySKScrollView.isDisabledTouches else { return }
+            guard !SwiftySKScrollView.isDisabled else { return }
             
             currentScene.touchesMoved(touches, with: event)
             nodesTouched = currentScene.nodes(at: location)
@@ -158,7 +153,7 @@ public class SwiftySKScrollView: UIScrollView {
         for touch in touches {
             let location = touch.location(in: currentScene)
             
-            guard !SwiftySKScrollView.isDisabledTouches else { return }
+            guard !SwiftySKScrollView.isDisabled else { return }
             
             currentScene.touchesEnded(touches, with: event)
             nodesTouched = currentScene.nodes(at: location)
@@ -177,7 +172,7 @@ public class SwiftySKScrollView: UIScrollView {
         for touch in touches {
             let location = touch.location(in: currentScene)
         
-            guard !SwiftySKScrollView.isDisabledTouches else { return }
+            guard !SwiftySKScrollView.isDisabled else { return }
             
             currentScene.touchesCancelled(touches, with: event)
             nodesTouched = currentScene.nodes(at: location)
