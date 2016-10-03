@@ -299,6 +299,7 @@
 				B4533F821DA2CB1300440CC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
