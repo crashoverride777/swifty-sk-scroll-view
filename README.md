@@ -1,6 +1,6 @@
 # SwiftySKScrollView
 
-A simple helper to add a UIScrollView to your SpriteKit scenes. 
+A helper class to add a UIScrollView to your SpriteKit scenes. 
 This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
 Depending on your scene scale mode cropping could occur so you might have play around with your settings to get the best result.
 
@@ -177,6 +177,6 @@ scrollView?.removeFromSuperView()
 
 - v2.0
 
-Project has been renamed to SwiftySKScrollView
+Project has been renamed to SwiftySKScrollView.
 
 No more source breaking changes after this update. All future changes will be handled with deprecated messages.
