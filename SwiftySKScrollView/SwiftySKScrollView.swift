@@ -28,7 +28,7 @@ import SpriteKit
 /**
  SwiftySKScrollView
  
- A custom UIScrollView class to add to your SpriteKit scenes.
+ A custom subclass of UIScrollView to add to your SpriteKit scenes.
  */
 public class SwiftySKScrollView: UIScrollView {
     
