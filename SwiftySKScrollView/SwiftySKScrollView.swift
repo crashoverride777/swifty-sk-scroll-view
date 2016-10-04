@@ -34,11 +34,8 @@ public class SwiftySKScrollView: UIScrollView {
     
     // MARK: - Static Properties
 
-    /// Scroll view reference
-    fileprivate static var scrollView: UIScrollView?
-    
-    /// Disabled touches
-    private static var isDisabled = false {
+    /// Disable status
+    public static var isDisabled = false {
         didSet {
             if isDisabled {
                 SwiftySKScrollView.scrollView?.isUserInteractionEnabled = false
@@ -47,6 +44,9 @@ public class SwiftySKScrollView: UIScrollView {
             }
         }
     }
+    
+    /// Scroll view reference
+    fileprivate static var scrollView: UIScrollView?
     
     // MARK: - Properties
     
@@ -59,7 +59,7 @@ public class SwiftySKScrollView: UIScrollView {
     fileprivate let moveableNode: SKNode
     
     /// Scroll direction
-    fileprivate let scrollDirection: Direction
+    fileprivate let direction: Direction
     
     /// Nodes touched. This will forward touches to node subclasses.
     private var nodesTouched = [AnyObject]()
@@ -74,9 +74,9 @@ public class SwiftySKScrollView: UIScrollView {
     /// - parameter frame: The frame of the scroll view
     /// - parameter moveableNode: The moveable node that will contain all the sprites to be moved by the scrollview
     /// - parameter scrollDirection: The scroll direction of the scrollView.
-    public init(frame: CGRect, moveableNode: SKNode, scrollDirection: Direction) {
+    public init(frame: CGRect, moveableNode: SKNode, direction: Direction) {
         self.moveableNode = moveableNode
-        self.scrollDirection = scrollDirection
+        self.direction = direction
         super.init(frame: frame)
         
         if let scene = moveableNode.scene {
@@ -95,9 +95,8 @@ public class SwiftySKScrollView: UIScrollView {
         //minimumZoomScale = 1
         //maximumZoomScale = 3
         
-        if scrollDirection == .horizontal {
-            transform = CGAffineTransform(scaleX: -1,y: 1) // set 2nd number to -1 if you want scroll indicator at top
-        }
+        guard direction == .horizontal else { return }
+        transform = CGAffineTransform(scaleX: -1,y: 1) // set 2nd number to -1 if you want scroll indicator at top
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -190,7 +189,7 @@ extension SwiftySKScrollView: UIScrollViewDelegate {
     
     /// Scroll view did scroll
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollDirection == .horizontal {
+        if direction == .horizontal {
             moveableNode.position.x = scrollView.contentOffset.x
         } else {
             moveableNode.position.y = scrollView.contentOffset.y
