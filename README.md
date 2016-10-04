@@ -1,17 +1,12 @@
 # SwiftySKScrollView
 
 A helper class to add a UIScrollView to your SpriteKit scenes. 
-This helper only really works well if your game is either in landscape or portrait, which normally is fairly standard for a game anyway.
-Depending on your scene scale mode cropping could occur so you might have play around with your settings to get the best result.
 
-The helper will also automatically forward button presses to the scene and button presses on nodes. Therefore in your SKScenes and SKSpriteNode sublcass the touches method will fire as usual.
+The helper will automatically forward button presses in the SKScene and on Node subclass. 
 
-This helper works best for smaller scrollable lists for things such as character select screens.
+It works best for smaller scrollable lists for things such as character select screens. If you want something like a level select screen where there will be alot of buttons than its better to use a UICollectionView. 
 
-If you want something like a level select screen where there will be alot of buttons than its best to use a UICollectionView as it will make your life easier and the menu more efficient due to cell reusage. You can easily subclass UICollectionView in similar fashion to this helper.
-
-
-# # How to use
+# How to use
 
 - Step 1: Add the SwiftySKScrollView.swift file to your project
 
@@ -37,7 +32,7 @@ and set up the scrollView
 
 Vertical scrolling
 ```swift
-scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, scrollDirection: .vertical)
+scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, direction: .vertical)
 
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width, height: scrollView!.frame.height * 3) // makes it 3 times the height
 view?.addSubview(scrollView!)
@@ -45,7 +40,7 @@ view?.addSubview(scrollView!)
 
 Horizontal scrolling
 ```swift
-scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, scrollDirection: .horizontal)
+scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, direction: .horizontal)
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width * 3, height: scrollView!.frame.height) // * 3 makes it three times as wide
 view?.addSubview(scrollView!)
 
