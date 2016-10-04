@@ -33,7 +33,6 @@ and set up the scrollView
 Vertical scrolling
 ```swift
 scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, direction: .vertical)
-
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width, height: scrollView!.frame.height * 3) // makes it 3 times the height
 view?.addSubview(scrollView!)
 ```
@@ -43,7 +42,6 @@ Horizontal scrolling
 scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, direction: .horizontal)
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width * 3, height: scrollView!.frame.height) // * 3 makes it three times as wide
 view?.addSubview(scrollView!)
-
 scrollView.setContentOffset(CGPoint(x: 0 + frame.width * 2, y: 0), animated: true)
 ```
 
@@ -51,9 +49,9 @@ Line 1 inits the helper with your scene dimensions. You also pass along the move
 
 Line 2 is where you set up the content size of the scrollView.
 
-Line 3 adds the scrollView to the subview
+Line 3 adds the scrollView
 
-Line 4 for horizontal scrolling resets the contentOffset so you start from left to right (UIKit coordinates are different to SpriteKits).
+Line 4 (horizontal) resets the contentOffset so you start from left to right (UIKit coordinates are different to SpriteKits).
 
 - Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
 
