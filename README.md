@@ -158,7 +158,7 @@ sprite1Page3.addChild(sprite2Page3)
 SwiftySKScrollView.isDisabled = true
 ```
 
-- Step 7: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. One of the pains when dealing with UIKit in SpriteKit.
+- Step 7: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. As mentioned above one of the pains when dealing with UIKit in SpriteKit.
 
 ```swift
 scrollView?.removeFromSuperView()
