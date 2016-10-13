@@ -7,6 +7,10 @@ It works best for smaller scrollable lists, like character select menus. If you 
 
 In general it is not good practice to add UIKit elements to SpriteKit games, all your UI should be done using SpriteKit APIs (SKSpriteNodes, SKLabelNodes, SKNodes etc). However there are a few things in UIKit, UIScrollViews and UICollectionViews in particular, that would be quite difficult to reacreate with SpriteKit APIs.
 
+# Cocoa Pods
+
+I know that the current way with copying the .swift file(s) into your project sucks and is bad practice, so I am working hard to finally support CocoaPods very soon. Stay tuned.
+
 # How to use
 
 - Step 1: Add the SwiftySKScrollView.swift file to your project
