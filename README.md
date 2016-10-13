@@ -9,7 +9,7 @@ In general it is not good practice to add UIKit elements to SpriteKit games, all
 
 # Cocoa Pods
 
-I know that the current way with copying the .swift file(s) into your project sucks and is bad practice, so I am working hard to finally support CocoaPods very soon. Stay tuned.
+I know that the current way of copying the .swift file(s) into your project sucks and is bad practice, so I am working hard to finally support CocoaPods very soon. Stay tuned.
 
 # How to use
 
