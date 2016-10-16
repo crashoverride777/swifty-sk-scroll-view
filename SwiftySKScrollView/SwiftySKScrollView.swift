@@ -37,11 +37,7 @@ public class SwiftySKScrollView: UIScrollView {
     /// Disable status
     public static var isDisabled = false {
         didSet {
-            if isDisabled {
-                SwiftySKScrollView.scrollView?.isUserInteractionEnabled = false
-            } else {
-                SwiftySKScrollView.scrollView?.isUserInteractionEnabled = true
-            }
+            SwiftySKScrollView.scrollView?.isUserInteractionEnabled = !isDisabled
         }
     }
     
