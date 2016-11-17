@@ -11,6 +11,8 @@ In general it is not good practice to add UIKit elements to SpriteKit games, all
 
 I know that the current way of copying the .swift file(s) into your project sucks and is bad practice, so I am working hard to finally support CocoaPods very soon. Stay tuned.
 
+In the meantime I would create a folder on your Mac, called something like SharedFiles, and drag the swift file(s) into this folder. Than drag the files from this folder into your project, making sure that "copy if needed" is not selected. This way its easier to update the files and to share them between projects.
+
 # How to use
 
 - Step 1: Add the SwiftySKScrollView.swift file to your project
