@@ -49,7 +49,7 @@ Horizontal scrolling
 scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, direction: .horizontal)
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width * 3, height: scrollView!.frame.height) // * 3 makes it three times as wide
 view?.addSubview(scrollView!)
-scrollView.setContentOffset(CGPoint(x: 0 + frame.width * 2, y: 0), animated: true)
+scrollView?.setContentOffset(CGPoint(x: 0 + frame.width * 2, y: 0), animated: true)
 ```
 
 Line 1 inits the helper with your scene dimensions. You also pass along the moveableNode you created at step 2 and the scrollDirection you want. 
