@@ -21,9 +21,12 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v2.0
-
 import SpriteKit
+
+/// SwiftySKScrollView direction
+public enum SwiftySKScrollViewDirection {
+    case vertical, horizontal
+}
 
 /**
  SwiftySKScrollView
@@ -46,16 +49,11 @@ public class SwiftySKScrollView: UIScrollView {
     
     // MARK: - Properties
     
-    /// Scroll direction
-    public enum Direction {
-        case vertical, horizontal
-    }
-    
     /// Moveable node
     fileprivate let moveableNode: SKNode
     
     /// Scroll direction
-    fileprivate let direction: Direction
+    fileprivate let direction: SwiftySKScrollViewDirection
     
     /// Nodes touched. This will forward touches to node subclasses.
     private var nodesTouched = [AnyObject]()
@@ -70,7 +68,7 @@ public class SwiftySKScrollView: UIScrollView {
     /// - parameter frame: The frame of the scroll view
     /// - parameter moveableNode: The moveable node that will contain all the sprites to be moved by the scrollview
     /// - parameter scrollDirection: The scroll direction of the scrollView.
-    public init(frame: CGRect, moveableNode: SKNode, direction: Direction) {
+    public init(frame: CGRect, moveableNode: SKNode, direction: SwiftySKScrollViewDirection) {
         self.moveableNode = moveableNode
         self.direction = direction
         super.init(frame: frame)
