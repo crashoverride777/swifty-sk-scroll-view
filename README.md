@@ -170,6 +170,7 @@ SwiftySKScrollView.isDisabled = true
 
 ```swift
 scrollView?.removeFromSuperView()
+scrollView = nil // nil out the reference if its no longer needed
 ```
 
 # Release notes
