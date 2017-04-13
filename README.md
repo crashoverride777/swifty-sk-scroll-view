@@ -3,9 +3,16 @@
 A helper class to add a UIScrollView to your SpriteKit scenes. 
 
 The helper will automatically forward button presses to the relevant SKScene and node subclasses. 
-It works best for smaller scrollable lists, like character select menus. If you want something like a level select screen where there will be alot of buttons than its better to use a UICollectionView. You can subclass UICollectionViews in similar fashion than this helper.
 
-In general it is not good practice to add UIKit elements to SpriteKit games, all your UI should be done using SpriteKit APIs (SKSpriteNodes, SKLabelNodes, SKNodes etc). However there are a few things in UIKit, UIScrollViews and UICollectionViews in particular, that would be quite difficult to reacreate with SpriteKit APIs.
+# Please Read
+
+In general it is not good practice to add UIKit elements to SpriteKit games, all your UI should be done using SpriteKit APIs (SKSpriteNodes, SKLabelNodes, SKNodes etc) directly in the relevant SKScene(s). However there are a few things in UIKit, UIScrollViews and UICollectionViews in particular, that would be quite difficult to recreate with SpriteKit APIs.
+
+This is also an older project I actually no longer use in my own apps as it is not the most elegant solution in world to achieve a scrollable list. It should only be used for very small things such as a character select menus. 
+
+It is much better to use a UICollectionView for a scrollable list due to cell reusage end efficiency. You can subclass UICollectionViews in similar fashion than this helper.
+
+I will continue to maintain this repositiory indefinately. 
 
 # Cocoa Pods
 
