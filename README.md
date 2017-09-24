@@ -182,6 +182,10 @@ scrollView = nil // nil out the reference if its no longer needed
 
 # Release notes
 
+- v2.0.2
+
+Swift 4 update
+
 - v2.0.1
 
 Cleanup
