@@ -80,11 +80,11 @@ extension MenuScene {
         moveableNode.addChild(page1ScrollView)
         
         let page2ScrollView = SKSpriteNode(color: SKColor.clear, size: CGSize(width: scrollView.frame.width, height: scrollView.frame.height))
-        page2ScrollView.position = CGPoint(x: frame.midX, y: frame.midY - (frame.height))
+        page2ScrollView.position = CGPoint(x: frame.midX, y: frame.midY - (scrollView.frame.height))
         moveableNode.addChild(page2ScrollView)
         
         let page3ScrollView = SKSpriteNode(color: SKColor.clear, size: CGSize(width: scrollView.frame.width, height: scrollView.frame.height))
-        page3ScrollView.position = CGPoint(x: frame.midX, y: frame.midY - (frame.height * 2))
+        page3ScrollView.position = CGPoint(x: frame.midX, y: frame.midY - (scrollView.frame.height * 2))
         moveableNode.addChild(page3ScrollView)
         
         // Test sprites page 1
@@ -145,12 +145,12 @@ extension MenuScene {
         // Makes positioning much easier.
         let page1ScrollView = SKSpriteNode(color: SKColor.clear, size: CGSize(width: scrollView.frame.width, height: scrollView.frame.height))
         page1ScrollView.zPosition = -1
-        page1ScrollView.position = CGPoint(x: frame.midX - (frame.width * 2), y: frame.midY)
+        page1ScrollView.position = CGPoint(x: frame.midX - (scrollView.frame.width * 2), y: frame.midY)
         moveableNode.addChild(page1ScrollView)
         
         let page2ScrollView = SKSpriteNode(color: SKColor.clear, size: CGSize(width: scrollView.frame.width, height: scrollView.frame.height))
         page2ScrollView.zPosition = -1
-        page2ScrollView.position = CGPoint(x: frame.midX - (frame.width), y: frame.midY)
+        page2ScrollView.position = CGPoint(x: frame.midX - (scrollView.frame.width), y: frame.midY)
         moveableNode.addChild(page2ScrollView)
         
         let page3ScrollView = SKSpriteNode(color: SKColor.clear, size: CGSize(width: scrollView.frame.width, height: scrollView.frame.height))

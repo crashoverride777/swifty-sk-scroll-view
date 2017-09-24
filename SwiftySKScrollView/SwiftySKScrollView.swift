@@ -44,15 +44,15 @@ public class SwiftySKScrollView: UIScrollView {
     }
     
     /// Scroll view reference
-    fileprivate static var scrollView: UIScrollView?
+    private static var scrollView: UIScrollView?
     
     // MARK: - Properties
     
     /// Moveable node
-    fileprivate let moveableNode: SKNode
+    private let moveableNode: SKNode
     
     /// Scroll direction
-    fileprivate let direction: SwiftySKScrollViewDirection
+    private let direction: SwiftySKScrollViewDirection
     
     /// Nodes touched. This will forward touches to node subclasses.
     private var nodesTouched = [AnyObject]()
