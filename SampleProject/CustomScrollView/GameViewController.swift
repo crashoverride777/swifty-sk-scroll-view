@@ -10,12 +10,17 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
-
+    
+    enum Scene: String {
+        case menu = "MenuScene"
+        case game = "GameScene"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let skView = self.view as! SKView
-        let scene = MenuScene(size: CGSize(width: 768, height: 1024))
+        let scene = SKScene(fileNamed: Scene.menu.rawValue)!
         // Configure the view.
         
         skView.showsFPS = true
@@ -35,18 +40,9 @@ class GameViewController: UIViewController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+        return .portrait
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
