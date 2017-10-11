@@ -28,7 +28,7 @@ In the meantime I would create a folder on your Mac, called something like Share
  
 ```swift
 class MenuScene: SKScene {
-    weak var scrollView: SwiftySKScrollView?
+    var scrollView: SwiftySKScrollView?
     let moveableNode = SKNode()
     ...
 }
@@ -46,14 +46,14 @@ and set up the scrollView
 
 Vertical scrolling
 ```swift
-scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, direction: .vertical)
+scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height), moveableNode: moveableNode, direction: .vertical)
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width, height: scrollView!.frame.height * 3) // makes it 3 times the height
 view?.addSubview(scrollView!)
 ```
 
 Horizontal scrolling
 ```swift
-scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), moveableNode: moveableNode, direction: .horizontal)
+scrollView = SwiftySKScrollView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height), moveableNode: moveableNode, direction: .horizontal)
 scrollView?.contentSize = CGSize(width: scrollView!.frame.width * 3, height: scrollView!.frame.height) // * 3 makes it three times as wide
 view?.addSubview(scrollView!)
 scrollView?.setContentOffset(CGPoint(x: 0 + scrollView!.frame.width * 2, y: 0), animated: true)
@@ -170,17 +170,29 @@ sprite1Page3.addChild(sprite2Page3)
 - Step 6: If you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button you can use the isDisabled bool. Remember, UIKit elements get added to your GameViewController and not your SKScenes, so you will have to play around here and see how your SpriteKit UI interacts with the scrollView.
 
 ```swift
-SwiftySKScrollView.isDisabled = true
+scrollView?.isDisabled = true
 ```
 
-- Step 7: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. As mentioned above one of the pains when dealing with UIKit in SpriteKit.
+- Step 7: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. As mentioned above one of the pains when dealing with UIKit in SpriteKit. Its best done in WillMoveFromView
 
 ```swift
-scrollView?.removeFromSuperView()
-scrollView = nil // nil out the reference if its no longer needed
+override func willMove(from view: SKView) {
+    scrollView?.removeFromSuperview()
+    scrollView = nil // nil out reference to deallocate properly
+}
 ```
 
 # Release notes
+
+- v2.1
+
+Removed static properties
+Sample project cleanup
+Small changes to setup, please check instructions again
+
+Know Issues: 
+
+There is a problem with the scroll indicators positioning, so they are hidden for this release. Will fix ASAP
 
 - v2.0.2
 
