@@ -187,8 +187,11 @@ override func willMove(from view: SKView) {
 - v2.1
 
 Removed static properties
+
 Sample project cleanup
+
 Small changes to setup, please check instructions again
+
 
 Know Issues: 
 
