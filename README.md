@@ -16,13 +16,45 @@ I will continue to maintain this repositiory indefinately.
 
 # Cocoa Pods
 
-I know that the current way of copying the .swift file(s) into your project sucks and is bad practice, so I am working hard to finally support CocoaPods very soon. Stay tuned.
+CocoaPods is a dependency manager for Cocoa projects. You can install it with the following command:
 
-In the meantime I would create a folder on your Mac, called something like SharedFiles, and drag the swift file(s) into this folder. Than drag the files from this folder into your project, making sure that "copy if needed" is not selected. This way its easier to update the files and to share them between projects.
+```swift
+$ gem install cocoapods
+```
 
-# How to use
+CocoaPods 1.1+ is required to build.
 
-- Step 1: Add the SwiftySKScrollView.swift file to your project
+To integrate SwiftyMusic into your Xcode project using CocoaPods, specify it in your Podfile:
+
+```swift
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.3.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'SwiftyMusic'
+end
+```
+
+Then, run the following command:
+
+```swift
+$ pod install
+```
+
+You can also download the CocoaPods app for macOS and manage your pods this way.
+
+https://cocoapods.org/app
+
+# Set-Up
+
+- Step 1: Add the SwiftySKScrollView.swift file to your project or if you used CocoaPods add the the 
+
+```swift
+import SwiftySKScrollView 
+```
+
+to your .swift file(s).
 
 - Step 2: In your relevant SKScene you want to use it you create those 2 properties
  
