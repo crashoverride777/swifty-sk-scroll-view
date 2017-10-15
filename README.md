@@ -24,7 +24,7 @@ $ gem install cocoapods
 
 CocoaPods 1.1+ is required to build.
 
-To integrate SwiftyMusic into your Xcode project using CocoaPods, specify it in your Podfile:
+To integrate SwiftySKScrollView into your Xcode project using CocoaPods, specify it in your Podfile:
 
 ```swift
 source 'https://github.com/CocoaPods/Specs.git'
@@ -32,7 +32,7 @@ platform :ios, '9.3.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'SwiftyMusic'
+    pod 'SwiftySKScrollView'
 end
 ```
 
