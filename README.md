@@ -48,13 +48,13 @@ https://cocoapods.org/app
 
 # Set-Up
 
-- Step 1: Add the SwiftySKScrollView.swift file to your project or if you used CocoaPods add the the 
+- Step 1: Add the SwiftySKScrollView.swift file to your project or if you used CocoaPods add the 
 
 ```swift
 import SwiftySKScrollView 
 ```
 
-to your .swift file(s).
+statement to your .swift file(s).
 
 - Step 2: In your relevant SKScene you want to use it you create those 2 properties
  
