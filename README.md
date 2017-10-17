@@ -22,8 +22,6 @@ CocoaPods is a dependency manager for Cocoa projects. You can install it with th
 $ gem install cocoapods
 ```
 
-CocoaPods 1.1+ is required to build.
-
 To integrate SwiftySKScrollView into your Xcode project using CocoaPods, specify it in your Podfile:
 
 ```swift
