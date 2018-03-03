@@ -174,7 +174,7 @@ extension SwiftySKScrollView {
     }
 }
 
-// MARK: - UIScrollViewDelegate
+// MARK: - Scroll View Delegate
 
 extension SwiftySKScrollView: UIScrollViewDelegate {
     
