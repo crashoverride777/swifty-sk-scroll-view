@@ -19,26 +19,14 @@ I will continue to maintain this repositiory indefinately.
 CocoaPods is a dependency manager for Cocoa projects. You can install it with the following command:
 
 ```swift
-$ gem install cocoapods
-```
-
-To integrate SwiftySKScrollView into your Xcode project using CocoaPods, specify it in your Podfile:
-
-```swift
 pod 'SwiftySKScrollView'
-```
-
-Then, run the following command:
-
-```swift
-$ pod install
 ```
 
 You can also download the CocoaPods app for macOS and manage your pods this way.
 
 https://cocoapods.org/app
 
-# Set-Up
+# Usage
 
 - Step 1: Add the SwiftySKScrollView.swift file to your project or if you used CocoaPods add the 
 
