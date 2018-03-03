@@ -4,7 +4,7 @@ A helper class to add a UIScrollView to your SpriteKit scenes.
 
 The helper will automatically forward button presses to the relevant SKScene and node subclasses. 
 
-# Please Read
+## Please Read
 
 In general it is not good practice to add UIKit elements to SpriteKit games, all your UI should be done using SpriteKit APIs (SKSpriteNodes, SKLabelNodes, SKNodes etc) directly in the relevant SKScene(s). However there are a few things in UIKit, UIScrollViews and UICollectionViews in particular, that would be quite difficult to recreate with SpriteKit APIs.
 
@@ -14,19 +14,17 @@ It is much better to use a UICollectionView for a scrollable list due to cell re
 
 I will continue to maintain this repositiory indefinately. 
 
-# Cocoa Pods
+## Installation
 
-CocoaPods is a dependency manager for Cocoa projects. You can install it with the following command:
+CocoaPods is a dependency manager for Cocoa projects. Simply install the pod by adding the following line to your pod file
 
 ```swift
 pod 'SwiftySKScrollView'
 ```
 
-You can also download the CocoaPods app for macOS and manage your pods this way.
+Altenatively you can drag the swift file(s) manually into your project.
 
-https://cocoapods.org/app
-
-# Usage
+## Usage
 
 - Step 1: Add the SwiftySKScrollView.swift file to your project or if you used CocoaPods add the 
 
