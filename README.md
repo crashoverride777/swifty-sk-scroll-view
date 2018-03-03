@@ -211,32 +211,3 @@ override func willMove(from view: SKView) {
     scrollView = nil // nil out reference to deallocate properly
 }
 ```
-
-# Release notes
-
-- v2.1
-
-Removed static properties
-
-Sample project cleanup
-
-Small changes to setup, please check instructions again
-
-
-Know Issues: 
-
-There is a problem with the scroll indicators positioning, so they are hidden for this release. Will fix ASAP
-
-- v2.0.2
-
-Swift 4 update
-
-- v2.0.1
-
-Cleanup
-
-- v2.0
-
-Project has been renamed to SwiftySKScrollView.
-
-No more source breaking changes after this update. All future changes will be handled with deprecated messages unless the whole API changes.
