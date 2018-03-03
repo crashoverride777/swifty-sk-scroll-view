@@ -25,13 +25,7 @@ $ gem install cocoapods
 To integrate SwiftySKScrollView into your Xcode project using CocoaPods, specify it in your Podfile:
 
 ```swift
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.3.0'
-use_frameworks!
-
-target '<Your Target Name>' do
-    pod 'SwiftySKScrollView'
-end
+pod 'SwiftySKScrollView'
 ```
 
 Then, run the following command:
