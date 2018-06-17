@@ -34,7 +34,7 @@ Altenatively you can drag the swift file(s) manually into your project.
 
 ## Usage
 
-- Step 1: Add the SwiftySKScrollView.swift file to your project or if you used CocoaPods add the 
+- Add the SwiftySKScrollView.swift file to your project or if you used CocoaPods add the 
 
 ```swift
 import SwiftySKScrollView 
@@ -42,7 +42,7 @@ import SwiftySKScrollView
 
 statement to your .swift file(s).
 
-- Step 2: In your relevant SKScene you want to use it you create those 2 properties
+- In your relevant SKScene you want to use it you create those 2 properties
  
 ```swift
 class MenuScene: SKScene {
@@ -52,7 +52,7 @@ class MenuScene: SKScene {
 }
 ```
 
-- Step 3: - Set up the properties from step 2.
+- Set up the properties from step above.
 
 In didMoveToView add the moveable node
 
@@ -85,7 +85,7 @@ Line 3 adds the scrollView
 
 Line 4 (horizontal) resets the contentOffset so you start from left to right (UIKit coordinates are different to SpriteKits).
 
-- Step 4: - Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
+- Add sprites for each page in the scrollView to make positioning your actual stuff later on much easier
 
 Vertical scrolling
 ```swift
@@ -122,7 +122,7 @@ page3ScrollView.position = CGPoint(x: frame.midX, y: frame.midY)
 moveableNode.addChild(page3ScrollView)
 ```
 
-- Step 5: Add your sprites, labels etc. Because you will add them to the above sprites you can position them as usual which is why its much easier to do Step 4 first.
+- Add your sprites, labels etc. Because you will add them to the above sprites you can position them as usual which is why its much easier to do Step 4 first.
 
 Vertical scrolling
 ```swift
@@ -185,13 +185,13 @@ sprite2Page3.position = CGPoint(x: sprite1Page3.position.x + (sprite2Page3.size.
 sprite1Page3.addChild(sprite2Page3)
 ```
 
-- Step 6: If you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button you can use the isDisabled bool. Remember, UIKit elements get added to your GameViewController and not your SKScenes, so you will have to play around here and see how your SpriteKit UI interacts with the scrollView.
+- If you need to disable your scrollView incase you overlay another menu ontop of the scrollView or if you pressed a button you can use the isDisabled bool. Remember, UIKit elements get added to your GameViewController and not your SKScenes, so you will have to play around here and see how your SpriteKit UI interacts with the scrollView.
 
 ```swift
 scrollView?.isDisabled = true
 ```
 
-- Step 7: Finally do not forget to remove the scroll view from your scene before transitioning to a new one. As mentioned above one of the pains when dealing with UIKit in SpriteKit. Its best done in WillMoveFromView
+- Finally do not forget to remove the scroll view from your scene before transitioning to a new one. As mentioned above one of the pains when dealing with UIKit in SpriteKit. Its best done in WillMoveFromView
 
 ```swift
 override func willMove(from view: SKView) {
