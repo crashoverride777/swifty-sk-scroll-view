@@ -14,13 +14,21 @@ It is much better to use a UICollectionView for a scrollable list due to cell re
 
 I will continue to maintain this repositiory indefinately. 
 
+## Requirements
+
+- iOS 9.3+
+- Swift 4.0+
+
 ## Installation
 
-CocoaPods is a dependency manager for Cocoa projects. Simply install the pod by adding the following line to your pod file
+[CocoaPods](https://developers.google.com/admob/ios/quick-start#streamlined_using_cocoapods) is a dependency manager for Cocoa projects. Simply install the pod by adding the following line to your pod file
+
 
 ```swift
 pod 'SwiftySKScrollView'
 ```
+
+There is now an [app](https://cocoapods.org/app) which makes handling pods much easier
 
 Altenatively you can drag the swift file(s) manually into your project.
 
