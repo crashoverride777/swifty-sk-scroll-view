@@ -25,6 +25,8 @@ I will continue to maintain this repositiory indefinately.
 
 ## Installation
 
+### Cocoa Pods
+
 [CocoaPods](https://developers.google.com/admob/ios/quick-start#streamlined_using_cocoapods) is a dependency manager for Cocoa projects. Simply install the pod by adding the following line to your pod file
 
 
@@ -36,15 +38,31 @@ There is now an [app](https://cocoapods.org/app) which makes handling pods much 
 
 Altenatively you can drag the swift file(s) manually into your project.
 
+### Swift Package Manager
+
+The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler.
+
+To add a swift package to your project simple open your project in xCode and click File > Swift Packages > Add Package Dependency.
+Than enter `https://github.com/crashoverride777/swifty-sk-scroll-view` as the repository URL and finish the setup wizard.
+
+Alternatively if you have a Framwork that requires adding SwiftyReceiptValidator as a dependency is as easy as adding it to the dependencies value of your Package.swift.
+```swift
+dependencies: [
+.package(url: "https://github.com/crashoverride777/swifty-sk-scroll-view.git", from: "3.4.0")
+]
+```
+
+### Manually
+
+Add the SwiftySKScrollView.swift file to your project
+
 ## Usage
 
-- Add the SwiftySKScrollView.swift file to your project or if you used CocoaPods add the 
+- Add the import statement when using CocoaPods or SwiftPackageManager
 
 ```swift
 import SwiftySKScrollView 
 ```
-
-statement to your .swift file(s).
 
 - In your relevant SKScene you want to use it you create those 2 properties
  
