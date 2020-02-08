@@ -45,7 +45,7 @@ The Swift Package Manager is a tool for automating the distribution of Swift cod
 To add a swift package to your project simple open your project in xCode and click File > Swift Packages > Add Package Dependency.
 Than enter `https://github.com/crashoverride777/swifty-sk-scroll-view` as the repository URL and finish the setup wizard.
 
-Alternatively if you have a Framwork that requires adding SwiftyReceiptValidator as a dependency is as easy as adding it to the dependencies value of your Package.swift.
+Alternatively if you have a Framwork that requires adding SwiftySKScrollView as a dependency is as easy as adding it to the dependencies value of your Package.swift.
 ```swift
 dependencies: [
 .package(url: "https://github.com/crashoverride777/swifty-sk-scroll-view.git", from: "2.4.0")
