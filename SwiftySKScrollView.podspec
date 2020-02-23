@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'SwiftySKScrollView'
-s.version = '2.4.0'
+s.version = '2.4.1'
 s.license = 'MIT'
 s.summary = 'A swift helper to add a UIScrollView to your SpriteKit scenes.'
 
@@ -18,6 +18,6 @@ s.source = {
     :tag => s.version
 }
 
-s.source_files = "SwiftySKScrollView/**/*.{swift}"
+s.source_files = 'Source/**/*.{swift}'
 
 end

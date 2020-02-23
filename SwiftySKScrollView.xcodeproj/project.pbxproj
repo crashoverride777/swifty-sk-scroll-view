@@ -31,11 +31,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A494E7A2402B2D200203B0C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B4533F831DA2CB1F00440CC0 /* SwiftySKScrollView.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		B4533F6E1DA2CB1300440CC0 = {
 			isa = PBXGroup;
 			children = (
 				6A436BAE23EEF8AA00D5F5EA /* README.md */,
 				6A436BAD23EEF8AA00D5F5EA /* Package.swift */,
+				6A494E7A2402B2D200203B0C /* Source */,
 				B4533F7A1DA2CB1300440CC0 /* SwiftySKScrollView */,
 				B4533F791DA2CB1300440CC0 /* Products */,
 			);
@@ -52,7 +61,6 @@
 		B4533F7A1DA2CB1300440CC0 /* SwiftySKScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				B4533F831DA2CB1F00440CC0 /* SwiftySKScrollView.swift */,
 				B4533F7B1DA2CB1300440CC0 /* SwiftySKScrollView.h */,
 				B4533F7C1DA2CB1300440CC0 /* Info.plist */,
 			);
@@ -273,7 +281,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 287;
+				CURRENT_PROJECT_VERSION = 288;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -283,7 +291,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SwiftySKScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -299,7 +307,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 287;
+				CURRENT_PROJECT_VERSION = 288;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -309,7 +317,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SwiftySKScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
