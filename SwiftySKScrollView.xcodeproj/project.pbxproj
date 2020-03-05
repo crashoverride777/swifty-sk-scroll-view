@@ -31,12 +31,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A494E7A2402B2D200203B0C /* Source */ = {
+		6A494E7A2402B2D200203B0C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				B4533F831DA2CB1F00440CC0 /* SwiftySKScrollView.swift */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		B4533F6E1DA2CB1300440CC0 = {
@@ -44,7 +44,7 @@
 			children = (
 				6A436BAE23EEF8AA00D5F5EA /* README.md */,
 				6A436BAD23EEF8AA00D5F5EA /* Package.swift */,
-				6A494E7A2402B2D200203B0C /* Source */,
+				6A494E7A2402B2D200203B0C /* Sources */,
 				B4533F7A1DA2CB1300440CC0 /* SwiftySKScrollView */,
 				B4533F791DA2CB1300440CC0 /* Products */,
 			);
