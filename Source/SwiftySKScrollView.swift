@@ -83,7 +83,6 @@ public class SwiftySKScrollView: UIScrollView {
         }
 
         backgroundColor = .clear
-        self.frame = frame
         delegate = self
         indicatorStyle = .white
         isScrollEnabled = true
