@@ -86,7 +86,6 @@ public class SwiftySKScrollView: UIScrollView {
         self.frame = frame
         delegate = self
         indicatorStyle = .white
-        isScrollEnabled = true
         
         // MARK: - Fix wrong indicator positon in MenuScene
         showsVerticalScrollIndicator = false
