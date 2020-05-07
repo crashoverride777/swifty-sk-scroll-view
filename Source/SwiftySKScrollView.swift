@@ -37,7 +37,7 @@ public class SwiftySKScrollView: UIScrollView {
         case horizontal
     }
     
-    /// SwiftySKScrollView direction
+    /// SwiftySKScrollView position
     public enum ScrollIndicatorPosition {
         case top
         case bottom
@@ -88,7 +88,7 @@ public class SwiftySKScrollView: UIScrollView {
         indicatorStyle = .white
         isScrollEnabled = true
         
-        // MARK: - Fix wrong indicator positon in MenuScene
+        // MARK: - Fix wrong indicator position in MenuScene
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         
