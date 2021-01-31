@@ -16,7 +16,7 @@ This is also an older project I actually no longer use in my own apps as it is n
 
 It is much better to use a UICollectionView for a scrollable list due to cell reusage end efficiency. You can subclass UICollectionViews in similar fashion than this helper.
 
-I will continue to maintain this repositiory indefinately. 
+I will continue to maintain this repositiory indefinitely. 
 
 ## Requirements
 
