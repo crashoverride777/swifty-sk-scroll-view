@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'SwiftySKScrollView'
-s.version = '2.4.2'
+s.version = '2.4.3'
 s.license = 'MIT'
 s.summary = 'A Swift helper to add a UIScrollView to your SpriteKit scenes.'
 
