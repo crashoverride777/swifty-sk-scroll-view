@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A494E7C2402B32800203B0C /* SwiftySKScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A494E7B2402B32800203B0C /* SwiftySKScrollView.swift */; };
+		6AA1FF2324339004000F15E2 /* SwiftySKScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA1FF2224339004000F15E2 /* SwiftySKScrollView.swift */; };
 		B4898D7D1F8E9EF00084F4D9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B4898D7C1F8E9EF00084F4D9 /* GameScene.sks */; };
 		B4898D7F1F8E9F4B0084F4D9 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B4898D7E1F8E9F4B0084F4D9 /* MenuScene.sks */; };
 		B4A48B8F1C41B73200990677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A48B8E1C41B73200990677 /* AppDelegate.swift */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6A494E7B2402B32800203B0C /* SwiftySKScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftySKScrollView.swift; path = ../../Source/SwiftySKScrollView.swift; sourceTree = "<group>"; };
+		6AA1FF2224339004000F15E2 /* SwiftySKScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftySKScrollView.swift; path = ../../Sources/SwiftySKScrollView.swift; sourceTree = "<group>"; };
 		B4898D7C1F8E9EF00084F4D9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		B4898D7E1F8E9F4B0084F4D9 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		B4A48B8B1C41B73200990677 /* CustomScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +88,7 @@
 		B4A48B8D1C41B73200990677 /* CustomScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				6A494E7B2402B32800203B0C /* SwiftySKScrollView.swift */,
+				6AA1FF2224339004000F15E2 /* SwiftySKScrollView.swift */,
 				B4898D801F8E9F4F0084F4D9 /* Menu Scene */,
 				B4898D811F8E9F560084F4D9 /* Game Scene */,
 				B4A48B8E1C41B73200990677 /* AppDelegate.swift */,
@@ -178,7 +178,7 @@
 			files = (
 				B4A48B931C41B73200990677 /* MenuScene.swift in Sources */,
 				B4C491A61F8EA8B0007D33D3 /* MenuScene+VerticalScrolling.swift in Sources */,
-				6A494E7C2402B32800203B0C /* SwiftySKScrollView.swift in Sources */,
+				6AA1FF2324339004000F15E2 /* SwiftySKScrollView.swift in Sources */,
 				B4C491A81F8EA8BB007D33D3 /* MenuScene+HorizontalScrolling.swift in Sources */,
 				B4A48B951C41B73200990677 /* GameViewController.swift in Sources */,
 				B4B55F831C9D9588001CFF35 /* GameScene.swift in Sources */,

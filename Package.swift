@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -7,8 +7,8 @@ private let packageName = "SwiftySKScrollView"
 
 let package = Package(
     name: packageName,
-    platforms: [.iOS(.v10)],
+    platforms: [.iOS(.v10), .tvOS(.v10)],
     products: [.library(name: packageName, targets: [packageName])],
-    targets: [.target(name: packageName, path: "Source")],
+    targets: [.target(name: packageName, path: "Sources")],
     swiftLanguageVersions: [.v5]
 )
