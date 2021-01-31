@@ -39,13 +39,6 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		6AA1FF1D24338FB0000F15E2 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
 		B4533F6E1DA2CB1300440CC0 = {
 			isa = PBXGroup;
 			children = (
@@ -53,7 +46,6 @@
 				6A436BAD23EEF8AA00D5F5EA /* Package.swift */,
 				B4533F7A1DA2CB1300440CC0 /* SwiftySKScrollView */,
 				6A494E7A2402B2D200203B0C /* Sources */,
-				6AA1FF1D24338FB0000F15E2 /* Tests */,
 				B4533F791DA2CB1300440CC0 /* Products */,
 			);
 			sourceTree = "<group>";
