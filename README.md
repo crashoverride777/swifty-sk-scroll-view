@@ -44,7 +44,7 @@ Altenatively you can drag the swift file(s) manually into your project.
 The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler.
 
 To add a swift package to your project simple open your project in xCode and click File > Swift Packages > Add Package Dependency.
-Than enter `https://github.com/crashoverride777/swifty-sk-scroll-view` as the repository URL and finish the setup wizard.
+Than enter `https://github.com/crashoverride777/swifty-sk-scroll-view.git` as the repository URL and finish the setup wizard.
 
 Alternatively if you have a Framwork that requires adding SwiftySKScrollView as a dependency is as easy as adding it to the dependencies value of your Package.swift.
 ```swift
