@@ -55,7 +55,7 @@ dependencies: [
 
 ### Manually
 
-Add the SwiftySKScrollView.swift file to your project
+Add the `SwiftySKScrollView.swift` file to your project
 
 ## Usage
 
