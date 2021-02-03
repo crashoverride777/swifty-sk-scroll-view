@@ -37,7 +37,7 @@ pod 'SwiftySKScrollView'
 
 There is now an [app](https://cocoapods.org/app) which makes handling pods much easier
 
-Altenatively you can drag the swift file(s) manually into your project.
+Alternatively you can drag the swift file(s) manually into your project.
 
 ### Swift Package Manager
 
@@ -55,7 +55,7 @@ dependencies: [
 
 ### Manually
 
-Add the SwiftySKScrollView.swift file to your project
+Add the `SwiftySKScrollView.swift` file to your project.
 
 ## Usage
 
