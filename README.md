@@ -1,13 +1,19 @@
-# SwiftySKScrollView
-
 [![Swift 5.0](https://img.shields.io/badge/swift-5.0-ED523F.svg?style=flat)](https://swift.org/download/)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftySKScrollView.svg?style=flat)]()
 [![SPM supported](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftySKScrollView.svg)](https://img.shields.io/cocoapods/v/SwiftySKScrollView.svg)
 
-A helper class to add a UIScrollView to your SpriteKit scenes. 
+# SwiftySKScrollView
+
+A Swift library to add a UIScrollView to your SpriteKit scenes. 
 
 The helper will automatically forward button presses to the relevant SKScene and node subclasses. 
+
+- [Please Read](#please-read)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
 
 ## Please Read
 
@@ -222,3 +228,7 @@ override func willMove(from view: SKView) {
     scrollView = nil // nil out reference to deallocate properly
 }
 ```
+
+## License
+
+SwiftySKScrollView is released under the MIT license. [See LICENSE](https://github.com/crashoverride777/swifty-sk-scroll-view/blob/master/LICENSE) for details.
