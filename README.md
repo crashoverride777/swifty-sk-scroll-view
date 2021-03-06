@@ -7,8 +7,6 @@
 
 A Swift library to add a UIScrollView to your SpriteKit scenes. 
 
-The helper will automatically forward button presses to the relevant SKScene and node subclasses. 
-
 - [Please Read](#please-read)
 - [Requirements](#requirements)
 - [Installation](#installation)
