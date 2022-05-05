@@ -1,6 +1,6 @@
 //    The MIT License (MIT)
 //
-//    Copyright (c) 2016-2021 Dominik Ringler
+//    Copyright (c) 2016-2022 Dominik Ringler
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -20,6 +20,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+import UIKit
 import SpriteKit
 
 /**
@@ -29,90 +30,67 @@ import SpriteKit
  */
 public class SwiftySKScrollView: UIScrollView {
     
-    // MARK: - Properties
+    // MARK: - Types
     
-    /// SwiftySKScrollView direction
     public enum ScrollDirection {
         case vertical
         case horizontal
     }
     
-    /// SwiftySKScrollView position
-    public enum ScrollIndicatorPosition {
-        case top
-        case bottom
-    }
+    // MARK: - Properties
     
-    /// Disable status
     public var isDisabled = false {
         didSet {
             isUserInteractionEnabled = !isDisabled
         }
     }
     
-    /// Moveable node
-    private let moveableNode: SKNode
-    
-    /// Scroll direction
+    private unowned let moveableNode: SKNode
     private let direction: ScrollDirection
-    
-    /// Scroll indicator position
-    private let indicatorPosition: ScrollIndicatorPosition
-    
-    /// Nodes touched. This will forward touches to node subclasses.
     private var touchedNodes = [AnyObject]()
     
-    /// Current scene reference
-    private weak var currentScene: SKScene?
+    // MARK: - Initialization
     
-    // MARK: - Init
-    
-    /// Init
+    /// Initialization
     ///
-    /// - parameter frame: The frame of the scroll view
-    /// - parameter moveableNode: The moveable node that will contain all the sprites to be moved by the scrollview
-    /// - parameter scrollDirection: The scroll direction of the scrollView.
-    public init(frame: CGRect, moveableNode: SKNode, direction: ScrollDirection, indicatorPosition: ScrollIndicatorPosition = .bottom) {
+    /// - parameter frame: The frame of the UIScrollView.
+    /// - parameter moveableNode: The moveable node that will contain all the sprites to be scrolled by the UIScrollView.
+    /// - parameter direction: The scroll direction of the UIScrollView.
+    public init(frame: CGRect, moveableNode: SKNode, direction: ScrollDirection) {
         self.moveableNode = moveableNode
         self.direction = direction
-        self.indicatorPosition = indicatorPosition
         super.init(frame: frame)
-        
-        if let scene = moveableNode.scene {
-            self.currentScene = scene
-        }
 
         delegate = self
         indicatorStyle = .white
-        
-        // MARK: - Fix wrong indicator position in MenuScene
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         
-        guard direction == .horizontal else { return }
-        transform = CGAffineTransform(scaleX: -1, y: indicatorPosition == .bottom ? 1 : -1)
+        switch direction {
+        case .vertical:
+            break
+        case .horizontal:
+            transform = CGAffineTransform(scaleX: -1, y: 1)
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-    
-// MARK: - Touches
 
-extension SwiftySKScrollView {
+    // MARK: - Touches
     
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard !isDisabled else { return }
         super.touchesBegan(touches, with: event)
         
-        guard let currentScene = currentScene else { return }
+        guard let scene = moveableNode.scene else { return }
         
         for touch in touches {
-            let location = touch.location(in: currentScene)
+            let location = touch.location(in: scene)
         
-            currentScene.touchesBegan(touches, with: event)
-            touchedNodes = currentScene.nodes(at: location)
+            scene.touchesBegan(touches, with: event)
+            touchedNodes = scene.nodes(at: location)
             for node in touchedNodes {
                 node.touchesBegan(touches, with: event)
             }
@@ -123,13 +101,13 @@ extension SwiftySKScrollView {
         guard !isDisabled else { return }
         super.touchesMoved(touches, with: event)
         
-        guard let currentScene = currentScene else { return }
+        guard let scene = moveableNode.scene else { return }
         
         for touch in touches {
-            let location = touch.location(in: currentScene)
+            let location = touch.location(in: scene)
         
-            currentScene.touchesMoved(touches, with: event)
-            touchedNodes = currentScene.nodes(at: location)
+            scene.touchesMoved(touches, with: event)
+            touchedNodes = scene.nodes(at: location)
             for node in touchedNodes {
                 node.touchesMoved(touches, with: event)
             }
@@ -140,13 +118,13 @@ extension SwiftySKScrollView {
         guard !isDisabled else { return }
         super.touchesEnded(touches, with: event)
         
-        guard let currentScene = currentScene else { return }
+        guard let scene = moveableNode.scene else { return }
         
         for touch in touches {
-            let location = touch.location(in: currentScene)
+            let location = touch.location(in: scene)
             
-            currentScene.touchesEnded(touches, with: event)
-            touchedNodes = currentScene.nodes(at: location)
+            scene.touchesEnded(touches, with: event)
+            touchedNodes = scene.nodes(at: location)
             for node in touchedNodes {
                 node.touchesEnded(touches, with: event)
             }
@@ -157,13 +135,13 @@ extension SwiftySKScrollView {
         guard !isDisabled else { return }
         super.touchesCancelled(touches, with: event)
         
-        guard let currentScene = currentScene else { return }
+        guard let scene = moveableNode.scene else { return }
         
         for touch in touches {
-            let location = touch.location(in: currentScene)
+            let location = touch.location(in: scene)
         
-            currentScene.touchesCancelled(touches, with: event)
-            touchedNodes = currentScene.nodes(at: location)
+            scene.touchesCancelled(touches, with: event)
+            touchedNodes = scene.nodes(at: location)
             for node in touchedNodes {
                 node.touchesCancelled(touches, with: event)
             }
@@ -171,10 +149,9 @@ extension SwiftySKScrollView {
     }
 }
 
-// MARK: - Scroll View Delegate
+// MARK: - UIScrollViewDelegate
 
 extension SwiftySKScrollView: UIScrollViewDelegate {
-    
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if direction == .horizontal {
             moveableNode.position.x = scrollView.contentOffset.x

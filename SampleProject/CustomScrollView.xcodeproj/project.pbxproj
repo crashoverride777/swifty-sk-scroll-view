@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,8 +17,8 @@
 		B4A48B9A1C41B73200990677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A48B991C41B73200990677 /* Assets.xcassets */; };
 		B4A48B9D1C41B73200990677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A48B9B1C41B73200990677 /* LaunchScreen.storyboard */; };
 		B4B55F831C9D9588001CFF35 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B55F821C9D9588001CFF35 /* GameScene.swift */; };
-		B4C491A61F8EA8B0007D33D3 /* MenuScene+VerticalScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C491A51F8EA8B0007D33D3 /* MenuScene+VerticalScrolling.swift */; };
-		B4C491A81F8EA8BB007D33D3 /* MenuScene+HorizontalScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C491A71F8EA8BB007D33D3 /* MenuScene+HorizontalScrolling.swift */; };
+		B4C491A61F8EA8B0007D33D3 /* MenuScene+Vertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C491A51F8EA8B0007D33D3 /* MenuScene+Vertical.swift */; };
+		B4C491A81F8EA8BB007D33D3 /* MenuScene+Horizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C491A71F8EA8BB007D33D3 /* MenuScene+Horizontal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,8 @@
 		B4A48B9C1C41B73200990677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4A48B9E1C41B73200990677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4B55F821C9D9588001CFF35 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		B4C491A51F8EA8B0007D33D3 /* MenuScene+VerticalScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuScene+VerticalScrolling.swift"; sourceTree = "<group>"; };
-		B4C491A71F8EA8BB007D33D3 /* MenuScene+HorizontalScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuScene+HorizontalScrolling.swift"; sourceTree = "<group>"; };
+		B4C491A51F8EA8B0007D33D3 /* MenuScene+Vertical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuScene+Vertical.swift"; sourceTree = "<group>"; };
+		B4C491A71F8EA8BB007D33D3 /* MenuScene+Horizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuScene+Horizontal.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +53,8 @@
 			isa = PBXGroup;
 			children = (
 				B4A48B921C41B73200990677 /* MenuScene.swift */,
-				B4C491A51F8EA8B0007D33D3 /* MenuScene+VerticalScrolling.swift */,
-				B4C491A71F8EA8BB007D33D3 /* MenuScene+HorizontalScrolling.swift */,
+				B4C491A51F8EA8B0007D33D3 /* MenuScene+Vertical.swift */,
+				B4C491A71F8EA8BB007D33D3 /* MenuScene+Horizontal.swift */,
 				B4898D7E1F8E9F4B0084F4D9 /* MenuScene.sks */,
 			);
 			path = "Menu Scene";
@@ -89,10 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				6AA1FF2224339004000F15E2 /* SwiftySKScrollView.swift */,
-				B4898D801F8E9F4F0084F4D9 /* Menu Scene */,
-				B4898D811F8E9F560084F4D9 /* Game Scene */,
 				B4A48B8E1C41B73200990677 /* AppDelegate.swift */,
 				B4A48B941C41B73200990677 /* GameViewController.swift */,
+				B4898D801F8E9F4F0084F4D9 /* Menu Scene */,
+				B4898D811F8E9F560084F4D9 /* Game Scene */,
 				B4A48B961C41B73200990677 /* Main.storyboard */,
 				B4A48B991C41B73200990677 /* Assets.xcassets */,
 				B4A48B9B1C41B73200990677 /* LaunchScreen.storyboard */,
@@ -128,8 +128,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = Dominik;
+				LastUpgradeCheck = 1330;
+				ORGANIZATIONNAME = "Dominik Ringler";
 				TargetAttributes = {
 					B4A48B8A1C41B73200990677 = {
 						CreatedOnToolsVersion = 7.2;
@@ -139,7 +139,7 @@
 				};
 			};
 			buildConfigurationList = B4A48B861C41B73200990677 /* Build configuration list for PBXProject "CustomScrollView" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -177,9 +177,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4A48B931C41B73200990677 /* MenuScene.swift in Sources */,
-				B4C491A61F8EA8B0007D33D3 /* MenuScene+VerticalScrolling.swift in Sources */,
+				B4C491A61F8EA8B0007D33D3 /* MenuScene+Vertical.swift in Sources */,
 				6AA1FF2324339004000F15E2 /* SwiftySKScrollView.swift in Sources */,
-				B4C491A81F8EA8BB007D33D3 /* MenuScene+HorizontalScrolling.swift in Sources */,
+				B4C491A81F8EA8BB007D33D3 /* MenuScene+Horizontal.swift in Sources */,
 				B4A48B951C41B73200990677 /* GameViewController.swift in Sources */,
 				B4B55F831C9D9588001CFF35 /* GameScene.swift in Sources */,
 				B4A48B8F1C41B73200990677 /* AppDelegate.swift in Sources */,
@@ -231,6 +231,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -255,7 +256,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -287,6 +287,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -305,10 +306,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -320,8 +321,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DK88YZ475Z;
 				INFOPLIST_FILE = CustomScrollView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-CustomScrollView-SpriteKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -335,8 +339,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DK88YZ475Z;
 				INFOPLIST_FILE = CustomScrollView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-CustomScrollView-SpriteKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";

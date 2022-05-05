@@ -19,29 +19,16 @@ In general it is not good practice to add UIKit elements to SpriteKit games, all
 
 This is also an older project I actually no longer use in my own apps as it is not the most elegant solution in world to achieve a scrollable list. It should only be used for very small things such as a character select menus. 
 
-It is much better to use a UICollectionView for a scrollable list due to cell reusage end efficiency. You can subclass UICollectionViews in similar fashion than this helper.
+It is much better to use a UICollectionView for a scrollable list due to cell reusage end efficiency.
 
 I will continue to maintain this repositiory indefinitely. 
 
 ## Requirements
 
-- iOS 10.3+
+- iOS 12.0+
 - Swift 5.0+
 
 ## Installation
-
-### Cocoa Pods
-
-[CocoaPods](https://developers.google.com/admob/ios/quick-start#streamlined_using_cocoapods) is a dependency manager for Cocoa projects. Simply install the pod by adding the following line to your pod file
-
-
-```swift
-pod 'SwiftySKScrollView'
-```
-
-There is now an [app](https://cocoapods.org/app) which makes handling pods much easier
-
-Alternatively you can drag the swift file(s) manually into your project.
 
 ### Swift Package Manager
 
@@ -56,6 +43,17 @@ dependencies: [
 .package(url: "https://github.com/crashoverride777/swifty-sk-scroll-view.git", from: "2.4.0")
 ]
 ```
+
+### Cocoa Pods
+
+[CocoaPods](https://developers.google.com/admob/ios/quick-start#streamlined_using_cocoapods) is a dependency manager for Cocoa projects. Simply install the pod by adding the following line to your pod file
+
+
+```swift
+pod 'SwiftySKScrollView'
+```
+
+There is now an [app](https://cocoapods.org/app) which makes handling pods much easier
 
 ### Manually
 
@@ -230,4 +228,3 @@ override func willMove(from view: SKView) {
 ## License
 
 SwiftySKScrollView is released under the MIT license. [See LICENSE](https://github.com/crashoverride777/swifty-sk-scroll-view/blob/master/LICENSE) for details.
-

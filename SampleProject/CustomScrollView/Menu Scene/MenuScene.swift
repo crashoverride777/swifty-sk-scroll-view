@@ -1,48 +1,40 @@
-//
-//  MenuScene.swift
-//  SwiftySKScrollView
-//
-//  Created by Dominik on 09/01/2016.
-//  Copyright (c) 2016 Dominik. All rights reserved.
-//
-
 import SpriteKit
 
-class MenuScene: SKScene {
+final class MenuScene: SKScene {
     
+    // MARK: - Types
+    
+    enum Config {
+        static let spriteSize = CGSize(width: 180, height: 180)
+        static let scrollViewWidthAdjuster: CGFloat = 3
+    }
+
     // MARK: - Properties
     
-    /// Sprite size
-    let testSpriteSize = CGSize(width: 180, height: 180)
-    
-    /// Scroll view
     var scrollView: SwiftySKScrollView?
-    let scrollViewWidthAdjuster: CGFloat = 3
-    
-    /// Moveable node in the scrollView
     let moveableNode = SKNode()
     
     /// To register touches, make the sprite global.
     /// Could also give each sprite a name and than check for the name in the touches methods
-    let sprite1Page1 = SKSpriteNode(color: .red, size: CGSize(width: 180, height: 180))
+    let sprite1Page1 = SKSpriteNode(color: .red, size: Config.spriteSize)
     
-    /// Click label
-    let clickLabel: SKLabelNode = { 
-        $0.horizontalAlignmentMode = .center
-        $0.verticalAlignmentMode = .center
-        $0.text = "Tap"
-        $0.fontSize = 32
-        $0.position = CGPoint(x: 0, y: 0)
-        return $0
-    }(SKLabelNode(fontNamed: "HelveticaNeue"))
+    private(set) lazy var clickLabel: SKLabelNode = {
+        let label = SKLabelNode(fontNamed: "HelveticaNeue")
+        label.horizontalAlignmentMode = .center
+        label.verticalAlignmentMode = .center
+        label.text = "Tap"
+        label.fontSize = 32
+        label.position = CGPoint(x: 0, y: 0)
+        return label
+    }()
     
-    // MARK: - Deinit
+    // MARK: - Deinitialization
     
     deinit {
-        print("Deinit game scene")
+        print("Deinit GameScene")
     }
     
-    // MARK: - View Life Cycle
+    // MARK: - Life Cycle
     
     override func didMove(to view: SKView) {
         /* Setup your scene here */
@@ -57,8 +49,10 @@ class MenuScene: SKScene {
         scrollView = nil
     }
     
-    /// Touches began,
+    // MARK: - Touches
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         /* Called when a touch begins */
         for touch in touches {
             let location = touch.location(in: self)
@@ -69,14 +63,27 @@ class MenuScene: SKScene {
             }
         }
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+    }
 }
 
-// MARK: - Load Game Scene
+// MARK: - Private Methods
 
 private extension MenuScene {
-    
     func loadGameScene() {
-        let scene = SKScene(fileNamed: GameViewController.Scene.game.rawValue)!
+        guard let scene = SKScene(fileNamed: GameViewController.SceneName.game.rawValue) else {
+            fatalError("MenuScene cannot load GameScene.")
+        }
         scene.scaleMode = .aspectFill
         let transition = SKTransition.crossFade(withDuration: 1)
         view?.presentScene(scene, transition: transition)
