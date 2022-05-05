@@ -45,7 +45,7 @@ public class SwiftySKScrollView: UIScrollView {
         }
     }
     
-    private let moveableNode: SKNode
+    private unowned let moveableNode: SKNode
     private let direction: ScrollDirection
     private var touchedNodes = [AnyObject]()
     

@@ -19,7 +19,7 @@ In general it is not good practice to add UIKit elements to SpriteKit games, all
 
 This is also an older project I actually no longer use in my own apps as it is not the most elegant solution in world to achieve a scrollable list. It should only be used for very small things such as a character select menus. 
 
-It is much better to use a UICollectionView for a scrollable list due to cell reusage end efficiency. You can subclass UICollectionViews in similar fashion than this helper.
+It is much better to use a UICollectionView for a scrollable list due to cell reusage end efficiency.
 
 I will continue to maintain this repositiory indefinitely. 
 
