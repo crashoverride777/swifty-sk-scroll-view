@@ -25,23 +25,10 @@ I will continue to maintain this repositiory indefinitely.
 
 ## Requirements
 
-- iOS 10.3+
+- iOS 12.0+
 - Swift 5.0+
 
 ## Installation
-
-### Cocoa Pods
-
-[CocoaPods](https://developers.google.com/admob/ios/quick-start#streamlined_using_cocoapods) is a dependency manager for Cocoa projects. Simply install the pod by adding the following line to your pod file
-
-
-```swift
-pod 'SwiftySKScrollView'
-```
-
-There is now an [app](https://cocoapods.org/app) which makes handling pods much easier
-
-Alternatively you can drag the swift file(s) manually into your project.
 
 ### Swift Package Manager
 
@@ -56,6 +43,17 @@ dependencies: [
 .package(url: "https://github.com/crashoverride777/swifty-sk-scroll-view.git", from: "2.4.0")
 ]
 ```
+
+### Cocoa Pods
+
+[CocoaPods](https://developers.google.com/admob/ios/quick-start#streamlined_using_cocoapods) is a dependency manager for Cocoa projects. Simply install the pod by adding the following line to your pod file
+
+
+```swift
+pod 'SwiftySKScrollView'
+```
+
+There is now an [app](https://cocoapods.org/app) which makes handling pods much easier
 
 ### Manually
 
