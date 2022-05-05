@@ -20,6 +20,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+import UIKit
 import SpriteKit
 
 /**
@@ -36,11 +37,6 @@ public class SwiftySKScrollView: UIScrollView {
         case horizontal
     }
     
-    public enum ScrollIndicatorPosition {
-        case top
-        case bottom
-    }
-    
     // MARK: - Properties
     
     public var isDisabled = false {
@@ -51,7 +47,6 @@ public class SwiftySKScrollView: UIScrollView {
     
     private let moveableNode: SKNode
     private let direction: ScrollDirection
-    private let indicatorPosition: ScrollIndicatorPosition
     private var touchedNodes = [AnyObject]()
     
     // MARK: - Initialization
@@ -61,17 +56,13 @@ public class SwiftySKScrollView: UIScrollView {
     /// - parameter frame: The frame of the UIScrollView.
     /// - parameter moveableNode: The moveable node that will contain all the sprites to be scrolled by the UIScrollView.
     /// - parameter direction: The scroll direction of the UIScrollView.
-    /// - parameter indicatorPosition: The scroll indicator position of the UIScrollView. Defaults to `.bottom`.
-    public init(frame: CGRect, moveableNode: SKNode, direction: ScrollDirection, indicatorPosition: ScrollIndicatorPosition = .bottom) {
+    public init(frame: CGRect, moveableNode: SKNode, direction: ScrollDirection) {
         self.moveableNode = moveableNode
         self.direction = direction
-        self.indicatorPosition = indicatorPosition
         super.init(frame: frame)
 
         delegate = self
         indicatorStyle = .white
-        
-        #warning("Fix wrong indicator position in MenuScene")
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         
@@ -79,7 +70,7 @@ public class SwiftySKScrollView: UIScrollView {
         case .vertical:
             break
         case .horizontal:
-            transform = CGAffineTransform(scaleX: -1, y: indicatorPosition == .bottom ? 1 : -1)
+            transform = CGAffineTransform(scaleX: -1, y: 1)
         }
     }
     
