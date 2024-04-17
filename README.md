@@ -1,4 +1,4 @@
-[![Swift 5.0](https://img.shields.io/badge/swift-5.0-ED523F.svg?style=flat)](https://swift.org/download/)
+[![Swift 5.6](https://img.shields.io/badge/swift-5.6-ED523F.svg?style=flat)](https://swift.org/download/)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftySKScrollView.svg?style=flat)]()
 [![SPM supported](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftySKScrollView.svg)](https://img.shields.io/cocoapods/v/SwiftySKScrollView.svg)
@@ -7,26 +7,27 @@
 
 A Swift library to add a UIScrollView to your SpriteKit scenes. 
 
+- [Deprecation](#deprecation)
 - [Please Read](#please-read)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
 
+## Deprecation
+
+This library is deprecated and no longer supported.
+
 ## Please Read
 
 In general it is not good practice to add UIKit elements to SpriteKit games, all your UI should be done using SpriteKit APIs (SKSpriteNodes, SKLabelNodes, SKNodes etc) directly in the relevant SKScene(s). However there are a few things in UIKit, UIScrollViews and UICollectionViews in particular, that would be quite difficult to recreate with SpriteKit APIs.
 
-This is also an older project I actually no longer use in my own apps as it is not the most elegant solution in world to achieve a scrollable list. It should only be used for very small things such as a character select menus. 
-
-It is much better to use a UICollectionView for a scrollable list due to cell reusage end efficiency.
-
-I will continue to maintain this repositiory indefinitely. 
+It is much better to use a UICollectionView for a scrollable list due to cell reusage end efficiency. 
 
 ## Requirements
 
 - iOS 12.0+
-- Swift 5.0+
+- Swift 5.6+
 
 ## Installation
 
